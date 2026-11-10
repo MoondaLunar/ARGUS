@@ -10,3 +10,6 @@ data/
 # Python bytecode
 __pycache__/
 *.pyc
+
+# local secrets (API keys) - never commit
+.env
