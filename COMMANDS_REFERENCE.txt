@@ -1,0 +1,325 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                    OLLAMA & CRAWLER COMMAND REFERENCE                    ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🚀 QUICK COMMANDS
+
+  # Download new model (Recommended)
+  ollama pull dolphin-mixtral:8x7b
+
+  # Download alternatives
+  ollama pull dolphin-mistral:latest
+  ollama pull mistral:latest
+  ollama pull llama2-uncensored:latest
+
+  # List installed models
+  ollama list
+
+  # Run a model interactively
+  ollama run dolphin-mixtral:8x7b
+
+  # Stop Ollama service
+  ollama stop
+
+  # Start Ollama service
+  ollama serve
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🐍 PYTHON CRAWLER COMMANDS
+
+  # Test setup
+  python verify_setup.py
+
+  # Run all examples
+  python examples.py
+
+  # Simple crawl
+  python -c "
+from trawler_enhanced import EnhancedMemoryWebTrawler
+trawler = EnhancedMemoryWebTrawler(
+    seed_url='https://example.com',
+    entities=['ENTITY_A', 'ENTITY_B']
+)
+result = trawler.crawl()
+print(f'Found {len(result[\"links\"])} links')
+"
+
+  # Extract image metadata
+  python -c "
+from metadata_extractor import MetadataExtractor
+meta = MetadataExtractor.extract_image_metadata('photo.jpg')
+print(meta)
+"
+
+  # Fuzzy match entities
+  python -c "
+from analysis_engine import FuzzyMatcher
+matches = FuzzyMatcher.find_similar_entities('John Smith', ['Jon Smyth', 'Jane Doe'])
+print(matches)
+"
+
+═══════════════════════════════════════════════════════════════════════════
+
+  📦 PYTHON DEPENDENCY COMMANDS
+
+  # Install all dependencies
+  pip install -r requirements.txt
+
+  # Install individual packages
+  pip install requests beautifulsoup4 Pillow PyPDF2 fuzzywuzzy python-Levenshtein
+
+  # Check installed versions
+  pip list | findstr /E "(requests|beautifulsoup4|Pillow|PyPDF2|fuzzywuzzy)"
+
+  # Update all packages
+  pip install --upgrade -r requirements.txt
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🔧 TROUBLESHOOTING COMMANDS
+
+  # Check Ollama is running
+  curl http://127.0.0.1:11434/api/tags
+
+  # Test specific model
+  curl -X POST http://127.0.0.1:11434/api/generate \
+    -H "Content-Type: application/json" \
+    -d "{\"model\":\"dolphin-mixtral:8x7b\",\"prompt\":\"Test\"}"
+
+  # Check available disk space
+  dir C:\
+  wmic logicaldisk get name,size,freespace
+
+  # Monitor system resources (Windows)
+  # Open Task Manager (Ctrl+Shift+Esc)
+  # Look for GPU tab to see model usage
+
+  # Check running processes
+  tasklist | findstr ollama
+  tasklist | findstr python
+
+═══════════════════════════════════════════════════════════════════════════
+
+  📊 REST API COMMANDS (when Java backend is running)
+
+  # Test API is running
+  curl http://localhost:8080/api/analytics/summary
+
+  # Create a link
+  curl -X POST http://localhost:8080/api/links \
+    -H "Content-Type: application/json" \
+    -d "{\"entityA\":\"PERSON_A\",\"entityB\":\"PERSON_B\",\"confidence\":0.85,\"sourceUrl\":\"http://example.com\"}"
+
+  # Get entity connections
+  curl http://localhost:8080/api/links/entity/PERSON_A
+
+  # Get high-confidence links
+  curl http://localhost:8080/api/links/confidence/0.7
+
+  # Store document
+  curl -X POST http://localhost:8080/api/documents \
+    -H "Content-Type: application/json" \
+    -d "{\"sourceType\":\"web\",\"identifier\":\"test-doc\",\"documentType\":\"image\"}"
+
+  # Get all images
+  curl http://localhost:8080/api/documents/images
+
+═══════════════════════════════════════════════════════════════════════════
+
+  📁 FILE OPERATIONS
+
+  # Navigate to crawler directory
+  cd C:\Users\Moon\OneDrive\Desktop\data\ crawler
+
+  # List all files
+  dir
+
+  # View a file
+  type trawler_enhanced.py | more
+
+  # Search for text in files
+  findstr /S "ollama_model" *.py
+
+  # Delete temporary files
+  del /Q __pycache__\*
+  del /Q logs\*.log
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🔍 DEBUGGING COMMANDS
+
+  # View crawler logs
+  type logs\crawler.log
+
+  # Follow logs in real-time (Windows 10+)
+  Get-Content logs\crawler.log -Wait
+
+  # Enable debug logging (add to Python script)
+  import logging
+  logging.basicConfig(level=logging.DEBUG)
+
+  # Check Python version
+  python --version
+
+  # Check if module is installed
+  python -c "import requests; print(requests.__version__)"
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🎯 COMMON WORKFLOWS
+
+  Scenario 1: First-time setup
+  ─────────────────────────────────────────────────────────────────────
+  1. pip install -r requirements.txt
+  2. ollama pull dolphin-mixtral:8x7b
+  3. python verify_setup.py
+  4. python examples.py
+
+  Scenario 2: Run a quick crawl
+  ─────────────────────────────────────────────────────────────────────
+  1. (Edit crawler.py with your URL/entities)
+  2. python crawler.py
+  3. (Wait 5-10 minutes)
+  4. (Results in output.json)
+
+  Scenario 3: Troubleshoot model issues
+  ─────────────────────────────────────────────────────────────────────
+  1. ollama list
+  2. curl http://127.0.0.1:11434/api/tags
+  3. ollama pull dolphin-mixtral:8x7b
+  4. python verify_setup.py
+
+  Scenario 4: Deploy Java backend
+  ─────────────────────────────────────────────────────────────────────
+  1. mvn clean install
+  2. mvn spring-boot:run
+  3. (Wait for "Started" message)
+  4. curl http://localhost:8080/api/analytics/summary
+
+═══════════════════════════════════════════════════════════════════════════
+
+  ⚡ QUICK ALIASES (Create in PowerShell Profile)
+
+  # Add these to your PowerShell profile for faster typing:
+  # (Edit: $PROFILE)
+
+  # Crawl with default settings
+  function crawl { python trawler_enhanced.py }
+
+  # Verify setup
+  function verify { python verify_setup.py }
+
+  # Run examples
+  function examples { python examples.py }
+
+  # List Ollama models
+  function models { ollama list }
+
+  # Show API status
+  function api-status { curl http://localhost:8080/api/analytics/summary }
+
+═══════════════════════════════════════════════════════════════════════════
+
+  📊 MONITORING
+
+  # Real-time GPU/CPU monitoring (PowerShell)
+  while($true) {
+    Clear-Host
+    Write-Host "GPU/CPU Status:"
+    Get-Process python | Select-Object Name, ID, Handles
+    wmic os get totalvisiblememoryside,freephysicalmemory
+    Start-Sleep -Seconds 2
+  }
+
+  # Check model inference speed
+  python -c "
+import time
+import requests
+start = time.time()
+requests.post('http://127.0.0.1:11434/api/generate',
+              json={'model':'dolphin-mixtral:8x7b','prompt':'Test'})
+elapsed = time.time() - start
+print(f'Response time: {elapsed:.1f}s')
+"
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🆘 HELP RESOURCES
+
+  # View Python help
+  python -c "from trawler_enhanced import EnhancedMemoryWebTrawler; help(EnhancedMemoryWebTrawler)"
+
+  # View module docstring
+  python -c "import trawler_enhanced; print(trawler_enhanced.__doc__)"
+
+  # List Ollama help
+  ollama --help
+
+  # Read documentation
+  type README.md | more
+  type MODEL_GUIDE.md | more
+  type QUICK_START.md | more
+
+═══════════════════════════════════════════════════════════════════════════
+
+  💾 SAVE/EXPORT
+
+  # Save crawl results to JSON
+  python -c "
+import json
+from trawler_enhanced import EnhancedMemoryWebTrawler
+trawler = EnhancedMemoryWebTrawler(...)
+result = trawler.crawl()
+with open('results.json', 'w') as f:
+    json.dump(result, f, indent=2)
+"
+
+  # Export knowledge graph
+  python -c "
+from analysis_engine import ExportFormatter
+kg = ExportFormatter.export_knowledge_graph(links, entities)
+import json
+with open('knowledge_graph.json', 'w') as f:
+    json.dump(kg, f, indent=2)
+"
+
+═══════════════════════════════════════════════════════════════════════════
+
+  ℹ️  NOTES
+
+  • All commands assume you're in the crawler directory
+  • Adjust paths (C:\Users\Moon\...) for your system
+  • Replace example URLs with your actual targets
+  • Model downloads require stable internet (5-20 minutes)
+  • Ollama needs to be running for crawler to work
+  • Java backend requires Maven and Java 17+
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🎯 MOST COMMON COMMANDS YOU'LL USE
+
+  1. Download model:           ollama pull dolphin-mixtral:8x7b
+  2. Verify setup:             python verify_setup.py
+  3. Run examples:             python examples.py
+  4. Run crawler:              python trawler_enhanced.py
+  5. Check API:                curl http://localhost:8080/api/...
+  6. List models:              ollama list
+  7. Check logs:               type logs\crawler.log | more
+  8. Install deps:             pip install -r requirements.txt
+
+═══════════════════════════════════════════════════════════════════════════
+
+  🚀 READY? START HERE:
+
+    1. download_model.bat          (automated download)
+    2. python verify_setup.py      (verify everything works)
+    3. python examples.py          (see it in action)
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                    All set! Happy crawling! 🕷️                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
