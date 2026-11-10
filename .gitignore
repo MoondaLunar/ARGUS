@@ -1,0 +1,12 @@
+# Java build output
+target/
+*.class
+
+# H2 database (local state, not source)
+data/
+*.mv.db
+*.trace.db
+
+# Python bytecode
+__pycache__/
+*.pyc
