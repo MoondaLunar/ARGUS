@@ -23,6 +23,7 @@ import json
 import os
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional, Tuple
+from public_transport import public_url, validate_url
 
 import requests
 
@@ -40,7 +41,10 @@ class SourceHit:
     extra: Dict = field(default_factory=dict)
 
     def as_dict(self) -> Dict:
-        return asdict(self)
+        data = asdict(self)
+        data["url"] = public_url(self.url)
+        data["extra"] = {k: v for k, v in self.extra.items() if k != "fetch_url"}
+        return data
 
 
 class SearchSource:
@@ -81,16 +85,14 @@ class GovInfoSource(SearchSource):
             "pageSize": limit,
             "offsetMark": "*",
         }
-        r = requests.post(self.API, params={"api_key": self.api_key}, json=body, timeout=self.timeout)
+        r = requests.post(self.API, params={"api_key": self.api_key}, json=body, timeout=self.timeout, allow_redirects=False)
         r.raise_for_status()
         data = r.json()
         hits = []
         for item in data.get("results", []):
             pdf = (item.get("download") or {}).get("pdfLink")
-            fetch_url = None
             if pdf:
-                sep = "&" if "?" in pdf else "?"
-                fetch_url = f"{pdf}{sep}api_key={self.api_key}"
+                validate_url(pdf)
             hits.append(
                 SourceHit(
                     source=self.name,
@@ -101,7 +103,7 @@ class GovInfoSource(SearchSource):
                     court=(item.get("governmentAuthor") or [None])[0],
                     date=item.get("dateIssued"),
                     collection=item.get("collectionCode") or self.collection,
-                    extra={"fetch_url": fetch_url} if fetch_url else {},
+                    extra={},
                 )
             )
         return hits
@@ -224,12 +226,21 @@ def default_sources() -> List[SearchSource]:
     ]
 
 
-def search_all(terms: List[str], sources: Optional[List[SearchSource]] = None, limit: int = 10) -> Dict:
+def search_all(terms: List[str], sources: Optional[List[SearchSource]] = None, limit: int = 10, *, allow_network=False) -> Dict:
     """Run every available source for every term and report what each one did."""
+    if sources is None and not allow_network:
+        return {"terms": terms, "sources": [], "hits": [], "unavailable": [{"source": "network", "reason": "disabled; approval required"}], "errors": []}
     sources = sources if sources is not None else default_sources()
     report = {"terms": terms, "sources": [], "hits": [], "unavailable": [], "errors": []}
     for src in sources:
-        ok, reason = src.available()
+        if isinstance(src, (GovInfoSource, SecEdgarSource, CourtListenerSource)) and not allow_network:
+            report["unavailable"].append({"source": src.name, "reason": "network disabled"})
+            continue
+        try:
+            ok, reason = src.available()
+        except Exception as exc:
+            report["errors"].append({"source": src.name, "error_type": type(exc).__name__})
+            continue
         entry = {"source": src.name, "available": ok, "reason": reason, "requires": src.requires}
         if getattr(src, "url_template", None):
             entry["browser_url_template"] = src.url_template
@@ -237,12 +248,12 @@ def search_all(terms: List[str], sources: Optional[List[SearchSource]] = None, l
         if not ok:
             report["unavailable"].append({"source": src.name, "reason": reason})
             continue
-        for term in terms:
+        for term in dict.fromkeys(terms):
             try:
                 hits = src.search(term, limit=limit)
                 report["hits"].extend(h.as_dict() for h in hits)
             except Exception as exc:  # a source failing is data, not silence
-                report["errors"].append({"source": src.name, "term": term, "error": f"{type(exc).__name__}: {exc}"})
+                report["errors"].append({"source": src.name, "term": term, "error": type(exc).__name__})
     return report
 
 
@@ -251,3 +262,4 @@ if __name__ == "__main__":
 
     terms = sys.argv[1:] or ["Monica Witt"]
     print(json.dumps(search_all(terms, limit=3), indent=2))
+
