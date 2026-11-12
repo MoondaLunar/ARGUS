@@ -76,15 +76,16 @@ class ConnectionEvidenceTest(unittest.TestCase):
         ]
         self.assertEqual(self.crawler.find_connections_between_records(), [])
 
-    def test_topic_overlap_lowers_confidence(self):
+    def test_similar_names_are_not_identity_links(self):
         self.crawler.records = [
             record("A", "DDC", "https://example.gov/a.pdf", mention("Monica Witt", "PERSON", "Monica Witt", 0.6)),
             record("B", "DDC", "https://example.gov/b.pdf", mention("Monica Witte", "PERSON", "Monica Witte", 0.6)),
         ]
         conns = self.crawler.find_connections_between_records()
-        self.assertEqual(len(conns), 1)
-        self.assertLess(conns[0]["confidence"], 0.6)
-        self.assertIn("name similarity", conns[0]["basis"])
+        self.assertEqual(conns, [])
+        candidates = self.crawler.find_name_similarity_candidates()
+        self.assertEqual(len(candidates), 1)
+        self.assertFalse(candidates[0]["identity_verified"])
 
 
 class ExtractionTest(unittest.TestCase):
@@ -100,3 +101,4 @@ class ExtractionTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

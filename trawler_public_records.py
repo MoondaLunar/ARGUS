@@ -157,11 +157,11 @@ class PublicRecordExtractor:
             if key in seen:
                 continue
             seen.add(key)
-            sentence = text[max(0, text.rfind('.', 0, match.start()) + 1): text.find('.', match.end()) + 1 or len(text)]
+            sentence = text[max(0, match.start()-100):min(len(text), match.end()+100)]
             mentions.append(EntityMention(
                 name=name,
                 entity_type='PERSON',
-                context=sentence.strip()[:300],
+                context=sentence.strip(),
                 confidence=0.6,
             ))
         return mentions
@@ -178,24 +178,13 @@ class PublicRecordExtractor:
     @staticmethod
     def extract_court_from_url(url: str) -> Optional[str]:
         """Infer court from URL"""
-        url_lower = url.lower()
-        
-        court_patterns = {
-            'SDNY': ['sdny', 'south.district.new.york'],
-            'NDNY': ['ndny', 'north.district.new.york'],
-            'EDNY': ['edny', 'east.district.new.york'],
-            'WDNY': ['wdny', 'west.district.new.york'],
-            'SCOTUS': ['supreme', 'supremecourt'],
-            'FBI': ['fbi.gov', 'vault.fbi'],
-            'DOJ': ['justice.gov', 'doj.gov'],
-        }
-        
-        for court, keywords in court_patterns.items():
-            for keyword in keywords:
-                if keyword in url_lower:
-                    return court
-        
-        return None
+        # Publisher names and URL path words do not establish court jurisdiction.
+        host = urlparse(url).hostname or ''
+        courts = {'sdny.uscourts.gov': 'SDNY', 'nynd.uscourts.gov': 'NDNY',
+                  'nyed.uscourts.gov': 'EDNY', 'nywd.uscourts.gov': 'WDNY',
+                  'dcd.uscourts.gov': 'DDC', 'www.supremecourt.gov': 'SCOTUS'}
+        return courts.get(host.lower().removeprefix('www.'), courts.get(host.lower()))
+
 
 
 class PublicRecordsCrawler:
@@ -376,6 +365,10 @@ class PublicRecordsCrawler:
         settled: Dict[str, str] = {}
         for record in self.records:
             for entity in record.entities_found:
+                if entity.entity_type == 'DATE' or not entity.name.strip():
+                    continue
+                if entity.name.casefold() not in entity.context.casefold():
+                    continue
                 key = (self._canonical_name(entity, settled), entity.entity_type)
                 index.setdefault(key, []).append((record, entity))
 
@@ -396,7 +389,11 @@ class PublicRecordsCrawler:
                 rec_b0, _ = by_doc[doc_b][0]
                 # A docket number only means something inside its own court.
                 # Two different courts sharing "03-cv-225" is two cases, not one.
-                if entity_type == 'CASE_NUMBER' and rec_a0.source != rec_b0.source:
+                if entity_type == 'CASE_NUMBER' and (not rec_a0.court or rec_a0.court != rec_b0.court):
+                    continue
+                if rec_a0.url == rec_b0.url:
+                    continue
+                if rec_a0.text_sha256 and rec_a0.text_sha256 == rec_b0.text_sha256:
                     continue
                 rec_a, men_a = by_doc[doc_a][0]
                 rec_b, men_b = by_doc[doc_b][0]
@@ -420,6 +417,10 @@ class PublicRecordsCrawler:
                 ]
                 confidence, basis = self._connection_confidence(name, entity_type, men_a, men_b, len(by_doc))
                 connections.append({
+                    'connection_id': hashlib.sha256(json.dumps([doc_a, doc_b, entity_type, name], ensure_ascii=False).encode()).hexdigest(),
+                    'identity_verified': False,
+                    'assessment': 'candidate_document_match',
+                    'score_semantics': 'uncalibrated mention extraction score; not identity probability',
                     'entity': men_a.name,
                     'entity_type': entity_type,
                     'document_a': doc_a,
@@ -441,25 +442,7 @@ class PublicRecordsCrawler:
     # in a graph. Same surname plus 92% string similarity, nothing looser.
     @staticmethod
     def _canonical_name(entity: EntityMention, settled: Dict[str, str]) -> str:
-        import difflib
-
-        raw = entity.name.strip()
-        low = raw.lower()
-        if entity.entity_type != 'PERSON':
-            return low
-        surname = low.split()[-1]
-        best, best_score = low, 0.0
-        for seen, canonical in settled.items():
-            other = seen.split()[-1]
-            if other != surname and difflib.SequenceMatcher(None, other, surname).ratio() < 0.85:
-                continue
-            score = difflib.SequenceMatcher(None, low, seen).ratio()
-            if score > best_score:
-                best, best_score = canonical, score
-        if best_score >= 0.92:
-            return best
-        settled[low] = low
-        return low
+        return ' '.join(entity.name.split()).casefold()
 
     @staticmethod
     def _is_specific(entity_type: str, name: str) -> bool:
@@ -487,23 +470,17 @@ class PublicRecordsCrawler:
         look alike. Each additional document that carries the same entity is
         weak corroboration, so it nudges rather than doubles.
         """
+        score = round(max(0.0, min(1.0, a.confidence, b.confidence)), 3)
+        return score, f'{entity_type.lower()} exact string match; candidate only, identity unverified; no independence inferred'
+
+    def find_name_similarity_candidates(self):
+        """Exploratory spelling suggestions kept separate from evidence connections."""
         import difflib
-
-        na, nb = a.name.strip().lower(), b.name.strip().lower()
-        if na == nb:
-            agreement, agreement_note = 1.0, 'exact string match'
-        else:
-            ratio = difflib.SequenceMatcher(None, na, nb).ratio()
-            ta, tb = set(na.split()), set(nb.split())
-            overlap = len(ta & tb) / max(1, len(ta | tb))
-            agreement = max(0.5, round(max(ratio, overlap), 3))
-            agreement_note = f'name similarity {agreement:.2f} ({a.name!r} vs {b.name!r})'
-
-        base = min(a.confidence, b.confidence)
-        corroboration = 1.0 + 0.05 * min(doc_count - 2, 4)
-        confidence = round(min(0.99, base * agreement * corroboration), 3)
-        basis = f'{entity_type.lower()} match, {agreement_note}, base {base}, {doc_count} documents'
-        return confidence, basis
+        names = sorted({e.name for r in self.records for e in r.entities_found if e.entity_type == 'PERSON'})
+        return [{'name_a': a, 'name_b': b, 'similarity': difflib.SequenceMatcher(None, a.casefold(), b.casefold()).ratio(),
+                 'identity_verified': False, 'assessment': 'spelling_suggestion_only'}
+                for a, b in combinations(names, 2)
+                if a.casefold() != b.casefold() and difflib.SequenceMatcher(None, a.casefold(), b.casefold()).ratio() >= .92]
 
     def run_searches(self) -> Dict:
         """Turn the search terms into a real frontier instead of starting the
@@ -615,6 +592,7 @@ class PublicRecordsCrawler:
         return {
             "schema_version": 2,
             "errors": list(self.errors),
+            "name_similarity_candidates": self.find_name_similarity_candidates(),
             "crawl_summary": {
                 "pages_visited": len(self.visited),
                 "records_found": len(self.records),
