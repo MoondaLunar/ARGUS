@@ -1,0 +1,1007 @@
+{
+  "baseline": "30b5f605e9b5a1c18c753491d37d24c76c3f40bc",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "e630ddb2221e56aa09e0a4a46ac7e8bba90d9d1fdf8615cf85f07c4801b3a4ac",
+      "bytes": 189,
+      "historical_comparison": "absent"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "sha256": "c3c1e05972f58554e8559c183ea7c000811b77d32f06ec18f2602bb67f09c6f1",
+      "bytes": 120,
+      "historical_comparison": "absent"
+    },
+    {
+      "path": "00_START_HERE_FIRST.txt",
+      "sha256": "d668c17788f92e97a5ec339be93af08662ca554f760ac6d198d181f79edd3917",
+      "bytes": 14027,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "COMMANDS_REFERENCE.txt",
+      "sha256": "f1a78921379a5e2155a3488fc4f5b82405c850d5ad54c19778dd7ec44aa1ce7c",
+      "bytes": 12823,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "CONTINUOUS_24_7_README.md",
+      "sha256": "e5d56441195b3174e50a97b8640de5183429ed3c864fa0cc4188227912c4592f",
+      "bytes": 18477,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "CONTINUOUS_DEPLOYMENT_SUMMARY.txt",
+      "sha256": "13f7faafb3b2948d2237ccf193fce2051a149dab67d0073b5145964993c012d3",
+      "bytes": 14312,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "CONTINUOUS_MONITORING_INDEX.md",
+      "sha256": "2e6ec988d0cdac35c54abbf81f38b06d53b67d7a0fc9c85612259c82ca952954",
+      "bytes": 12236,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "CONTINUOUS_QUICKSTART.md",
+      "sha256": "cfb8bb20a6f0f26f5ab84c3be74c58026903ce33f42e87791e5adca103ccf63c",
+      "bytes": 10377,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "DEPLOYMENT_CHECKLIST.txt",
+      "sha256": "3573a689eb1ed8113987304b56b6443883aa544daa6e2efe7d45f7dd10c0b6c2",
+      "bytes": 13911,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "FINAL_SUMMARY.txt",
+      "sha256": "7802d38200b2e7612efc775285e562483574d13e36762303f64746c361cb882a",
+      "bytes": 17270,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IMPLEMENTATION_SUMMARY.md",
+      "sha256": "11016c4f009aa6ffb0ada4c75e9d449f09ecca77c39a6a7cf8b4bd8bdfc17366",
+      "bytes": 13679,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IRGC_MONICA_WITT_DEPLOYMENT.md",
+      "sha256": "5253e2c2af6560eac76f781a89af8062939308eb29bb54487d02e1ff165cc3d3",
+      "bytes": 13394,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IRGC_MONICA_WITT_GUIDE.md",
+      "sha256": "7e580f6553caa5165bbacb5f2a782cc38b0bdde50b61c9a6ab5079e3bb0aac87",
+      "bytes": 11724,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IRGC_MONICA_WITT_INDEX.md",
+      "sha256": "da6398818742faa1b058b02c1f15ec129de5621f99af390fc1e0d3e8cba15ec2",
+      "bytes": 12736,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IRGC_MONICA_WITT_INTEGRATION.md",
+      "sha256": "2556a6e7ea91707007a1952fc586d64b49a0b0c15fbf3ec7948111909f4b2d97",
+      "bytes": 14529,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IRGC_MONICA_WITT_QUICK_START.md",
+      "sha256": "9a8a55c14c2edefd524f3857aa5da4628e1cb5b51485da75714453b875877a63",
+      "bytes": 6676,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "IRGC_MONICA_WITT_README.txt",
+      "sha256": "dd7569d2fa2ab69c8dae8abf87a6b6b8adb746d548252e7ccb9543dcb1a6cf97",
+      "bytes": 16612,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "MODEL_GUIDE.md",
+      "sha256": "b5d4274ac2fb6ac769c65e6ebae913e0aa97338b2cc9b53dca684e823241c598",
+      "bytes": 7100,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "MODEL_UPGRADE_SUMMARY.txt",
+      "sha256": "4a969908c809a969ffea13a940c1aeafaafca8767cf7a40c18765c1179094078",
+      "bytes": 12649,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "PUBLIC_RECORDS_GUIDE.md",
+      "sha256": "2dafe4d1539ac63b69f4444fb2772a20d9c754b41dc3b5a4364e2a3acfd8c1d0",
+      "bytes": 11717,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "PUBLIC_RECORDS_QUICK_START.md",
+      "sha256": "d0806cc9a83ecf6079abbc8e0ade376109a0028e513b69b0a5ebb6141b4f443f",
+      "bytes": 14191,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "QUICK_START.md",
+      "sha256": "7a550a7958e96d917ac3a5d4187b4ca1e0feadc7e2189eadca4fbd8572e80522",
+      "bytes": 9505,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "README.md",
+      "sha256": "4e26a71a6d99f6c1dbbf6ea8e005bb285da1a00d6b4305321455c298d6606bf2",
+      "bytes": 2798,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "START_HERE.txt",
+      "sha256": "53a56d2c164c6e2a0b0881c1b750ae9a0eb541650471996713f528c259a5b75d",
+      "bytes": 17043,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "UPGRADE_GUIDE.md",
+      "sha256": "23e1bc525301985fb1d52fea2ac3158234afc35d5dc1ac1d2ed6151cf573c4c7",
+      "bytes": 7034,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "analysis_engine.py",
+      "sha256": "4c9766e25a25bf075b64fc4521189eaa6cf1c9e2b210e8b25eed43b93dee0789",
+      "bytes": 9982,
+      "definitions": [
+        "FuzzyMatcher",
+        "LocationIntelligence",
+        "CorrelationAnalyzer",
+        "ExportFormatter",
+        "find_similar_entities",
+        "match_across_sources",
+        "haversine_distance",
+        "cluster_locations",
+        "timeline_from_locations",
+        "find_co_occurrences",
+        "detect_metadata_patterns",
+        "entity_behavior_timeline",
+        "calculate_relationship_strength",
+        "export_knowledge_graph",
+        "export_timeline",
+        "export_location_heat_map",
+        "export_entity_relationship_report"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "from typing import Dict, List, Tuple, Optional",
+        "from fuzzywuzzy import fuzz, process",
+        "from collections import defaultdict",
+        "import math"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "analysis_engine_v2.py",
+      "sha256": "29b4b04f76f2a94af2aa9b9a0b1f585fe33bbc20d7c311fb219d3aa049295666",
+      "bytes": 15932,
+      "definitions": [
+        "FuzzyMatcher",
+        "LocationIntelligence",
+        "CorrelationAnalyzer",
+        "ExportFormatter",
+        "_cached_similarity",
+        "find_similar_entities",
+        "match_across_sources",
+        "haversine_distance",
+        "cluster_locations",
+        "timeline_from_locations",
+        "cluster_by_geohash",
+        "find_co_occurrences",
+        "detect_metadata_patterns",
+        "entity_behavior_timeline",
+        "calculate_relationship_strength",
+        "find_entity_clusters",
+        "export_knowledge_graph",
+        "export_timeline",
+        "export_location_heat_map",
+        "export_entity_relationship_report",
+        "export_threat_assessment"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "import math",
+        "from functools import lru_cache",
+        "from typing import Dict, List, Tuple, Optional",
+        "from fuzzywuzzy import fuzz, process",
+        "from collections import defaultdict"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "config_template.py",
+      "sha256": "92fc142a53a4d98d85a03621dfa95f94d0b36d8430f09ae48aacb358b75bdccf",
+      "bytes": 5160,
+      "definitions": [],
+      "imports": [],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "continuous_monitoring_config.py",
+      "sha256": "34bd5cc4feaa0b0691079eeced63922a301201bac95cfc8b27360060512ad40a",
+      "bytes": 19105,
+      "definitions": [
+        "MonitoringProfile",
+        "get_all_expanded_aliases",
+        "get_all_expanded_seed_urls",
+        "get_all_expanded_search_terms",
+        "get_check_interval",
+        "is_peak_hours"
+      ],
+      "imports": [
+        "from datetime import time, timedelta",
+        "from enum import Enum",
+        "from typing import Dict, List, Optional",
+        "from datetime import datetime"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "download_model.bat",
+      "sha256": "329bd85ea9fc215067e30998effbed4f1fba1e1a1f681414acf1ce685131463b",
+      "bytes": 2320,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "examples.py",
+      "sha256": "a2f33580d6240c500b623251b288d3926da485de985d58d8bf6be780119c5b4a",
+      "bytes": 10689,
+      "definitions": [
+        "example_web_crawl",
+        "example_metadata_extraction",
+        "example_fuzzy_matching",
+        "example_location_intelligence",
+        "example_cooccurrence_analysis",
+        "example_metadata_patterns",
+        "example_knowledge_graph_export",
+        "example_entity_report",
+        "main"
+      ],
+      "imports": [
+        "import json",
+        "from trawler_enhanced import EnhancedMemoryWebTrawler",
+        "from metadata_extractor import MetadataExtractor",
+        "from analysis_engine import FuzzyMatcher, LocationIntelligence, CorrelationAnalyzer, ExportFormatter"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "examples_24_7_continuous.py",
+      "sha256": "ee5a0b70b3428623e2df301c1b6300aed971c34c6a1553dd79febfc1309fe1dd",
+      "bytes": 15671,
+      "definitions": [
+        "example_basic_24_7",
+        "example_intensive_monitoring",
+        "example_background_monitoring",
+        "example_adaptive_monitoring",
+        "example_multi_session",
+        "example_webhook_alerts",
+        "example_monitoring_report",
+        "main"
+      ],
+      "imports": [
+        "import asyncio",
+        "import json",
+        "from datetime import datetime",
+        "from pathlib import Path",
+        "from trawler_24_7_continuous import ContinuousCrawler, AlertLevel",
+        "from continuous_monitoring_config import CONTINUOUS_MONITORING, get_check_interval, get_all_expanded_aliases, get_all_expanded_seed_urls, is_peak_hours"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "examples_irgc_monica_witt.py",
+      "sha256": "d8540223d575d6de8c43e4da2a9b2b37edd5dc40b9184bd33ef941833d2dba4a",
+      "bytes": 10832,
+      "definitions": [
+        "example_basic_crawl",
+        "example_monica_witt_documents",
+        "example_irgc_connections",
+        "example_case_timeline",
+        "example_related_entities",
+        "example_export_intelligence",
+        "example_search_parameters",
+        "example_network_analysis",
+        "main"
+      ],
+      "imports": [
+        "import json",
+        "from trawler_irgc_monica_witt import IRGCMonicaWittCrawler",
+        "import csv"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "examples_public_records.py",
+      "sha256": "ad9ffcd1a3d4328e9f19ea1d0fb0e1936ad774b5ef57be4a6021874a7dda2dab",
+      "bytes": 10407,
+      "definitions": [
+        "example_fbi_indictments",
+        "example_entity_network_analysis",
+        "example_case_tracking",
+        "example_document_patterns",
+        "example_timeline_analysis",
+        "example_export_knowledge_graph",
+        "example_party_network",
+        "example_pdf_analysis",
+        "main"
+      ],
+      "imports": [
+        "import json",
+        "import requests",
+        "from trawler_public_records import PublicRecordsCrawler, PublicRecordExtractor",
+        "from analysis_engine import FuzzyMatcher, CorrelationAnalyzer, ExportFormatter"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "import os.py",
+      "sha256": "215a739816c9f85d301cfcf6791f08faec7c188eb4bcd5f3ee400826e5c1f2b5",
+      "bytes": 15548,
+      "definitions": [
+        "IntelligenceGraphPipeline",
+        "__init__",
+        "save_state",
+        "load_state",
+        "extract_exif",
+        "extract_pdf_text",
+        "extract_clean_text",
+        "trawl_and_analyze",
+        "evaluate_entity_matrix",
+        "query_local_inference",
+        "sync_to_spring_boot",
+        "build_visual_map"
+      ],
+      "imports": [
+        "import os",
+        "import re",
+        "import json",
+        "import requests",
+        "import hashlib",
+        "import io",
+        "from bs4 import BeautifulSoup",
+        "from urllib.parse import urljoin, urlparse",
+        "import networkx as nx",
+        "from pyvis.network import Network",
+        "from urllib3.util.retry import Retry",
+        "from requests.adapters import HTTPAdapter",
+        "import PyPDF2",
+        "from PIL import Image",
+        "from PIL.ExifTags import TAGS",
+        "import pgpy"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "ingest.py",
+      "sha256": "f10f6d6f8b54843583049ddc64ba8c86fa8b08f8706c3d0932e36a9a46652c01",
+      "bytes": 3025,
+      "definitions": [
+        "evidence_rationale",
+        "ingest",
+        "main"
+      ],
+      "imports": [
+        "from __future__ import annotations",
+        "import argparse",
+        "import json",
+        "import sys",
+        "from typing import Dict",
+        "import requests"
+      ],
+      "historical_comparison": "absent"
+    },
+    {
+      "path": "irgc_monica_witt_config.py",
+      "sha256": "f3a6d8dabf4bd7ed08fe0a905e14ddba01d2bcde1cd0e298053a28e25759a792",
+      "bytes": 18988,
+      "definitions": [
+        "get_all_aliases",
+        "get_all_search_terms",
+        "get_all_seed_urls",
+        "get_monica_witt_aliases",
+        "get_irgc_aliases"
+      ],
+      "imports": [],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "metadata_extractor.py",
+      "sha256": "57e9e1040d5aab8e2d09834d25323019e282af7ab9a8f3f3406d067527d3b250",
+      "bytes": 8674,
+      "definitions": [
+        "GPSCoordinate",
+        "ImageMetadata",
+        "PDFMetadata",
+        "MetadataExtractor",
+        "to_dict",
+        "geohash",
+        "to_dict",
+        "to_dict",
+        "convert_gps_to_decimal",
+        "extract_gps_from_exif",
+        "extract_image_metadata",
+        "extract_pdf_metadata",
+        "extract_file_metadata"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "import mimetypes",
+        "from dataclasses import dataclass, asdict",
+        "from pathlib import Path",
+        "from typing import Dict, Optional, List, Any",
+        "from PIL import Image",
+        "from PIL.ExifTags import TAGS as EXIF_TAGS",
+        "import PyPDF2",
+        "import hashlib",
+        "import hashlib"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "b3ae8d313cca94adbdc1d90d96a649ade8f80af6737a2269edd6560ad1fa5d95",
+      "bytes": 2440,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "0556797e9018458e78687707264121fee1333c6685b51d0d1953d6e7986415f9",
+      "bytes": 48,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "search_sources.py",
+      "sha256": "c1378486323bb4a32fd9790d8c7323027fad6b0f77236a8b074180a62acedcae",
+      "bytes": 9544,
+      "definitions": [
+        "SourceHit",
+        "SearchSource",
+        "GovInfoSource",
+        "SecEdgarSource",
+        "CourtListenerSource",
+        "BrowserGatedSource",
+        "default_sources",
+        "search_all",
+        "as_dict",
+        "available",
+        "search",
+        "__init__",
+        "available",
+        "search",
+        "__init__",
+        "search",
+        "__init__",
+        "available",
+        "search",
+        "__init__",
+        "available",
+        "search",
+        "open_url"
+      ],
+      "imports": [
+        "from __future__ import annotations",
+        "import json",
+        "import os",
+        "from dataclasses import dataclass, field, asdict",
+        "from typing import Dict, List, Optional, Tuple",
+        "import requests",
+        "import sys"
+      ],
+      "historical_comparison": "absent"
+    },
+    {
+      "path": "src/main/java/com/argus/ArgusApplication.java",
+      "sha256": "3a4745209d0be6c598dce820845879bfff277bc18d3a91fc527b4f5d4855bb4a",
+      "bytes": 738,
+      "historical_comparison": "absent"
+    },
+    {
+      "path": "src/main/java/com/crawler/controller/CrawlerController.java",
+      "sha256": "fdb69609769daaeba6ef7ef421605a1295e19c9e8633c4ce57573186199f9ade",
+      "bytes": 6020,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/crawler/model/DocumentArtifact.java",
+      "sha256": "a522016efbf4a75003b7d441b29548bb2703dfcc7ae946e7cf762e1df05b64dd",
+      "bytes": 2041,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/crawler/model/EntityGpsCluster.java",
+      "sha256": "5590e9dce1a5cfad1279e0738c9704635626871353d9392e2bdf5e928c25c688",
+      "bytes": 1677,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/crawler/model/IntelligenceLink.java",
+      "sha256": "8b46044eceac4aaa4eb89b2eaeb825c031860be8548dc61f285316553277e559",
+      "bytes": 1801,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/crawler/repository/DocumentArtifactRepository.java",
+      "sha256": "2be62decd0746fbb642f1f94c2624b8aeb61d07b9526b0859bc10457d2fc21bb",
+      "bytes": 1612,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/crawler/repository/EntityGpsClusterRepository.java",
+      "sha256": "1f2869e3f94437094e3735d68f27356ed48604c92d3830b51be34ad82912ab1e",
+      "bytes": 1252,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/crawler/repository/IntelligenceLinkRepository.java",
+      "sha256": "2592f78523a11564ca1beb118acb410f859935f8534abed8c2a6572263d410a6",
+      "bytes": 1739,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/example/intelligence/config/SecurityConfig.java",
+      "sha256": "c56ddd0664b0852d6c2f914da86b5de063f28706f1ccbbc39747ab9633b59c0e",
+      "bytes": 1143,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/example/intelligence/filter/PgpSignatureFilter.java",
+      "sha256": "7d5602d45aa2aaf6917cdd37259a5eb8d7861a5871cf859335f9364c754253bc",
+      "bytes": 3295,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/example/intelligence/service/SignatureVerificationService.java",
+      "sha256": "4e26de9bafa47a7c0c71b950b37748e1ca27e161f423d9a7773c19977b53eeba",
+      "bytes": 2278,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/example/intelligence/util/CachedBodyHttpServletRequest.java",
+      "sha256": "8f0c8fc732b4cfe5319f45a48f47008198f99cd3dc90227a2fdb596fa6b9193d",
+      "bytes": 2092,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/intelligence/audit/AuditRevisionEntity.java",
+      "sha256": "eeb1da55a559c27cc56e94c9bb89eacc0e4754d5c145f01e161cf4ea89618ff7",
+      "bytes": 561,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/intelligence/audit/AuditRevisionListener.java",
+      "sha256": "55adb72572d9472956ad3e53c5b5aa26141a112e6d1f222d2f3c889a453787ec",
+      "bytes": 516,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/intelligence/context/AuditContext.java",
+      "sha256": "c382290fe0a4fa3acf3372df06b6acdc4c5c6c703ce696518b398f0753b3e67b",
+      "bytes": 614,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/intelligence/controller/IntelligenceController.java",
+      "sha256": "b8ff8b0357b657e8abd75f189582b441395a1567712d9a58207f1dce10b3b155",
+      "bytes": 2342,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/intelligence/entity/IntelligenceFinding.java",
+      "sha256": "a041856634afa959a2188a63661e3a1fdcf7ba7eae07af11d3a85f2d9a54a932",
+      "bytes": 1408,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/intelligence/repository/IntelligenceFindingRepository.java",
+      "sha256": "b5919e36351103cf3ede5e830e65021440bdbc6c5631e5403d7459f15fce1f5d",
+      "bytes": 401,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/intelligence/service/CorroborationService.java",
+      "sha256": "aaa4202e0dba606c2f5d5e5ca1bcb680635cdb448a95c27b91d4690e992a1aff",
+      "bytes": 3001,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/java/com/intelligence/service/EvidenceExportService.java",
+      "sha256": "0138ce11c4de5e60cc5b9cd0b1d567b0d35c9763a92b6de30c5790da4bccfdd3",
+      "bytes": 3502,
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "src/main/java/com/intelligence/service/PgpSigningService.java",
+      "sha256": "c945e0aa46788bf9d9353e5d221b12fff15189808cecc4658740fd32f01b5d97",
+      "bytes": 2595,
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "src/main/resources/application.properties",
+      "sha256": "defa82d12e0823ff0761dba6cf39522b43691026de582a1f5d7381b6a0aa028f",
+      "bytes": 956,
+      "historical_comparison": "absent"
+    },
+    {
+      "path": "tests/test_correlation.py",
+      "sha256": "367c88bd02812b0001bc339b3719baab6732878062106d415742d7a60cc93597",
+      "bytes": 4199,
+      "definitions": [
+        "record",
+        "mention",
+        "ConnectionEvidenceTest",
+        "ExtractionTest",
+        "setUp",
+        "test_connection_carries_both_quotes_and_source_urls",
+        "test_thin_identifier_is_not_a_connection",
+        "test_docket_number_across_two_courts_is_not_one_case",
+        "test_topic_overlap_lowers_confidence",
+        "test_names_are_extracted_and_stopwords_are_not"
+      ],
+      "imports": [
+        "import sys",
+        "import unittest",
+        "from pathlib import Path",
+        "from trawler_public_records import EntityMention, PublicRecord, PublicRecordsCrawler",
+        "from trawler_public_records import PublicRecordExtractor"
+      ],
+      "historical_comparison": "absent"
+    },
+    {
+      "path": "trawler.py",
+      "sha256": "1853aeae9e258803e4a9ef12b566a9b4e306f7c76d7d9e374715421a24d1ef2d",
+      "bytes": 11514,
+      "definitions": [
+        "LinkEdge",
+        "MemoryWebTrawler",
+        "__init__",
+        "is_same_domain",
+        "normalize_url",
+        "fetch_text",
+        "clean_text",
+        "discover_links",
+        "make_chunks",
+        "prompt_for_link",
+        "parse_response",
+        "query_ollama",
+        "fallback_score",
+        "add_link",
+        "evaluate_page",
+        "crawl",
+        "build_output"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "import re",
+        "import time",
+        "from dataclasses import dataclass, asdict",
+        "from typing import Dict, List, Optional, Set",
+        "from urllib.parse import urljoin, urlparse",
+        "import requests",
+        "from bs4 import BeautifulSoup"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "trawler_24_7_continuous.py",
+      "sha256": "0d3b07e984ddb35e21d9a08bb625a3f6406cb3ad736042168eea6a0cb26c7886",
+      "bytes": 61410,
+      "definitions": [
+        "get_all_aliases",
+        "get_all_search_terms",
+        "get_all_seed_urls",
+        "calculate_shannon_entropy",
+        "calculate_structural_fingerprint",
+        "perform_facial_biometric_check",
+        "perform_infrastructure_probe",
+        "calculate_tls_fingerprint",
+        "check_dns_canaries",
+        "analyze_ip_geospatial_footprint",
+        "analyze_operational_surge",
+        "analyze_environmental_leakage",
+        "analyze_social_volatility",
+        "detect_semantic_jitter",
+        "monitor_ghost_accounts",
+        "score_recruitment_pattern",
+        "analyze_breach_patterns",
+        "analyze_instructional_tone",
+        "detect_prepositional_bleeding",
+        "detect_cultural_idiom_drift",
+        "analyze_performative_zealotry",
+        "check_system_integrity_canary",
+        "analyze_with_ollama",
+        "IntelligenceTool",
+        "AlertLevel",
+        "CrewIntelligenceSystem",
+        "CrawlResult",
+        "CrawlSession",
+        "ContinuousCrawler",
+        "main",
+        "_run",
+        "__init__",
+        "create_mission_tasks",
+        "run_mission",
+        "compute_hash",
+        "__init__",
+        "_calculate_initial_hash",
+        "_trigger_obvious_alert",
+        "_init_session",
+        "_load_state",
+        "_save_state",
+        "_signal_handler",
+        "crawl_source",
+        "_passive_monitoring_sweep",
+        "crawl_cycle",
+        "_sync_to_immutable_backend",
+        "_detect_changes",
+        "_format_uptime",
+        "run_continuous",
+        "_cleanup",
+        "get_all_aliases",
+        "get_all_search_terms",
+        "get_all_seed_urls"
+      ],
+      "imports": [
+        "from platform import system",
+        "from sys import monitoring",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import logging",
+        "import os",
+        "import signal",
+        "import sys",
+        "import time",
+        "import re",
+        "import platform",
+        "import winsound",
+        "import socket",
+        "import ssl",
+        "from dataclasses import dataclass, asdict, field",
+        "from datetime import datetime, timedelta",
+        "from pathlib import Path",
+        "from urllib.parse import urljoin, urlparse",
+        "from typing import Dict, List, Optional, Set, Tuple, Any, Callable",
+        "from enum import Enum",
+        "from crewai import Agent, Task, Crew, Process, LLM",
+        "from crewai.tools import BaseTool",
+        "from pydantic import Field",
+        "import requests",
+        "from requests.adapters import HTTPAdapter",
+        "from urllib3.util.retry import Retry",
+        "from bs4 import BeautifulSoup",
+        "import math",
+        "from deepface import DeepFace",
+        "from collections import Counter",
+        "import random",
+        "from trawler_enhanced_v2 import OptimizedWebTrawler, LinkEdge",
+        "from trawler_irgc_monica_witt import IRGCMonicaWittCrawler",
+        "import irgc_monica_witt_config as config",
+        "import argparse"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "trawler_enhanced.py",
+      "sha256": "a1f9a46049e6a2320b467fd82d45eaa246bea412e06f3cb37fbb0735dd6f96ad",
+      "bytes": 19350,
+      "definitions": [
+        "DocumentReference",
+        "LinkEdge",
+        "DataSource",
+        "EnhancedMemoryWebTrawler",
+        "__post_init__",
+        "__init__",
+        "is_same_domain",
+        "normalize_url",
+        "fetch_content",
+        "fetch_text",
+        "clean_text",
+        "discover_links",
+        "discover_assets",
+        "process_image_asset",
+        "process_pdf_asset",
+        "detect_gps_proximity_links",
+        "make_chunks",
+        "prompt_for_link",
+        "parse_response",
+        "query_ollama",
+        "fallback_score",
+        "add_link",
+        "evaluate_page",
+        "crawl",
+        "build_output"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "import re",
+        "import time",
+        "from dataclasses import dataclass, asdict",
+        "from typing import Dict, List, Optional, Set",
+        "from urllib.parse import urljoin, urlparse",
+        "from pathlib import Path",
+        "import requests",
+        "from bs4 import BeautifulSoup",
+        "from metadata_extractor import MetadataExtractor, ImageMetadata, PDFMetadata, GPSCoordinate"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "trawler_enhanced_v2.py",
+      "sha256": "f77d92a47c634da15b6c9420938ea57909ac9def4aad8bc565ad7678546033ae",
+      "bytes": 26978,
+      "definitions": [
+        "DocumentReference",
+        "LinkEdge",
+        "DataSource",
+        "OptimizedWebTrawler",
+        "__init__",
+        "_apply_rate_limit",
+        "_setup_caches",
+        "_create_optimized_session",
+        "is_same_domain",
+        "normalize_url",
+        "_fetch_url_impl",
+        "fetch_content",
+        "fetch_text",
+        "clean_text",
+        "discover_links",
+        "discover_assets",
+        "process_image_asset",
+        "process_pdf_asset",
+        "detect_gps_proximity_links",
+        "make_chunks",
+        "prompt_for_link",
+        "parse_response",
+        "_query_ollama_impl",
+        "query_ollama",
+        "fallback_score",
+        "add_link",
+        "process_entity_pair",
+        "evaluate_page",
+        "crawl",
+        "build_output",
+        "close"
+      ],
+      "imports": [
+        "import asyncio",
+        "import json",
+        "import logging",
+        "import re",
+        "import tempfile",
+        "import time",
+        "from dataclasses import dataclass, asdict, field",
+        "from functools import lru_cache",
+        "from pathlib import Path",
+        "from typing import Dict, List, Optional, Set, Tuple",
+        "from urllib.parse import urljoin, urlparse",
+        "from concurrent.futures import ThreadPoolExecutor, as_completed",
+        "import requests",
+        "from bs4 import BeautifulSoup",
+        "from urllib3.util.retry import Retry",
+        "from requests.adapters import HTTPAdapter",
+        "from metadata_extractor import MetadataExtractor, ImageMetadata, PDFMetadata, GPSCoordinate"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "trawler_irgc_monica_witt.py",
+      "sha256": "155cffb661c9c6ccac975c8ef9a514e7a267a2c39a8c2ed746390f6d64713e51",
+      "bytes": 12623,
+      "definitions": [
+        "IRGCIntelligenceTarget",
+        "IRGCMonicaWittCrawler",
+        "__init__",
+        "_get_seed_urls",
+        "_get_search_terms",
+        "is_target_related",
+        "extract_target_mentions",
+        "crawl",
+        "build_intelligence_report"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "from dataclasses import dataclass",
+        "from typing import Dict, List, Optional, Set",
+        "from trawler_public_records import PublicRecordsCrawler, PublicRecordExtractor"
+      ],
+      "historical_comparison": "text-equivalent"
+    },
+    {
+      "path": "trawler_public_records.py",
+      "sha256": "39d03e683b44887617729a02cc29b75e148ec6533f74a2317649f361757caf57",
+      "bytes": 28079,
+      "definitions": [
+        "EntityMention",
+        "PublicRecord",
+        "PublicRecordExtractor",
+        "PublicRecordsCrawler",
+        "extract_defendant_names",
+        "extract_entities",
+        "extract_names",
+        "extract_case_number",
+        "extract_court_from_url",
+        "__init__",
+        "is_relevant_url",
+        "fetch_document",
+        "extract_pdf_text",
+        "extract_from_pdf",
+        "discover_links_in_document",
+        "parse_document_as_record",
+        "find_connections_between_records",
+        "_canonical_name",
+        "_is_specific",
+        "_connection_confidence",
+        "run_searches",
+        "crawl",
+        "build_output",
+        "_group_entities_by_type"
+      ],
+      "imports": [
+        "import json",
+        "import logging",
+        "import re",
+        "import time",
+        "from dataclasses import dataclass, asdict",
+        "from typing import Dict, List, Optional, Set, Tuple",
+        "from urllib.parse import urljoin, urlparse",
+        "from pathlib import Path",
+        "from itertools import combinations",
+        "import requests",
+        "from bs4 import BeautifulSoup",
+        "from metadata_extractor import MetadataExtractor",
+        "from analysis_engine import FuzzyMatcher, CorrelationAnalyzer",
+        "import difflib",
+        "import difflib",
+        "import io",
+        "from pypdf import PdfReader",
+        "from search_sources import search_all"
+      ],
+      "historical_comparison": "changed"
+    },
+    {
+      "path": "verify_setup.py",
+      "sha256": "09a200478cf7013976ffa2e8807c38c37828da84cf37fa3347dd86c8c6003fd2",
+      "bytes": 7407,
+      "definitions": [
+        "check_ollama_installed",
+        "check_ollama_running",
+        "list_models",
+        "test_model",
+        "check_crawler_files",
+        "check_dependencies",
+        "check_ollama_model_config",
+        "print_summary",
+        "main"
+      ],
+      "imports": [
+        "import subprocess",
+        "import json",
+        "import time",
+        "import sys",
+        "from pathlib import Path",
+        "import requests",
+        "import requests"
+      ],
+      "historical_comparison": "text-equivalent"
+    }
+  ]
+}
