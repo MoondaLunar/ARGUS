@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 """
 IRGC & Monica Witt Intelligence Crawler
 Specialized for Monica Witt espionage case and IRGC connections
@@ -351,3 +354,4 @@ if __name__ == "__main__":
         json.dump(report, f, indent=2, default=str)
 
     print(f"\n✓ Full report saved to: irgc_monica_witt_intelligence_report.json")
+

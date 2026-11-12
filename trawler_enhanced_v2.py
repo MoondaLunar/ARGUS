@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 """Enhanced trawler with performance optimizations for 32GB RAM and modern async I/O"""
 
 import asyncio
@@ -634,3 +637,4 @@ if __name__ == "__main__":
         print(json.dumps(result, indent=2))
     finally:
         trawler.close()
+

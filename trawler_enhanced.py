@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 """Enhanced trawler with multi-document support and metadata tracking"""
 
 import json
@@ -469,3 +472,4 @@ if __name__ == "__main__":
 
     result = trawler.crawl()
     print(json.dumps(result, indent=2))
+
