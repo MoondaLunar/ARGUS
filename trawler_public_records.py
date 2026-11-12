@@ -16,8 +16,9 @@ from itertools import combinations
 import requests
 from bs4 import BeautifulSoup
 
-from metadata_extractor import MetadataExtractor
-from analysis_engine import FuzzyMatcher, CorrelationAnalyzer
+from public_transport import PublicTransport, canonical_url, public_url, validate_url
+import hashlib
+from dataclasses import field
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
@@ -52,6 +53,13 @@ class PublicRecord:
     found_by: Optional[Dict] = None
     # Exact lines in the text that made each entity count, kept for evidence
     text_excerpt: str = ""
+    provenance: List[Dict] = field(default_factory=list)
+    content_sha256: str = ""
+    text_sha256: str = ""
+    mime_type: str = ""
+    retrieved_at: Optional[str] = None
+    final_url: Optional[str] = None
+    extraction_status: str = "extracted"
 
 
 class PublicRecordExtractor:
@@ -205,7 +213,13 @@ class PublicRecordsCrawler:
         max_depth: int = 4,
         extract_pdfs: bool = True,
         sources: Optional[List] = None,
+        *, transport=None, allow_network=False, rate_limit=1.0,
     ):
+        self.transport = transport or PublicTransport(allow_network=allow_network)
+        self.allow_network = allow_network
+        self.rate_limit = rate_limit
+        self.errors = []
+        self.retrievals = {}
         self.seed_urls = seed_urls
         self.search_terms = search_terms
         self.sources = sources  # None -> search_sources.default_sources()
@@ -223,83 +237,25 @@ class PublicRecordsCrawler:
         self.entity_mentions: Dict[str, List[EntityMention]] = {}
         self.relationships: List[Dict] = []
 
-        self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "US-Aligned-OSINT-Agent/3.0 (Friendly Actor; Defense Research)",
-            "X-Mission-Intent": "Public Records Analysis (Target: IRGC/Monica Witt)",
-            "X-Alignment": "Pro-US National Security; Non-Hostile Researcher",
-            "X-Researcher-Contact": "your_email@example.com", # <--- ADD YOUR CONTACT INFO HERE
-            "Accept": "text/html,application/pdf,*/*",
-        })
+        self.session = self.transport.session if hasattr(self.transport, 'session') else None
 
     def is_relevant_url(self, url: str) -> bool:
-        """Check if URL is likely to contain relevant public records"""
-        relevant_domains = [
-            'fbi.gov',
-            'justice.gov',
-            'doj.gov',
-            'uscourts.gov',
-            'pacer.uscourts.gov',
-            'ca9.uscourts.gov',
-            'sdny.uscourts.gov',
-            'edny.uscourts.gov',
-            'docket.sec.gov',
-            'regulations.gov',
-            'archives.gov',
-            'govinfo.gov',
-            'sec.gov',
-            'publicintegrity.org',
-            'documenting-the-now',
-        ]
-        
-        url_lower = url.lower()
-        
-        # Check domain
-        if not any(domain in url_lower for domain in relevant_domains):
+        try:
+            validate_url(url, self.transport.allowed_hosts)
+            return True
+        except (ValueError, TypeError):
             return False
-        
-        # Exclude non-document URLs
-        excluded = ['login', 'auth', 'payment', 'ad', 'tracking', 'cdn-cgi', 'wp-content', 'wp-includes', 'googletagmanager']
-        if any(term in url_lower for term in excluded):
-            return False
-        
-        return True
 
     def fetch_document(self, url: str):
-        """Fetch a document. Returns (body, mime_type) where body is bytes for
-        PDFs and text for HTML. The old version returned response.text for both,
-        which mangled every PDF on the way to the parser."""
         try:
-            head = self.session.head(url, timeout=12, allow_redirects=True)
-            content_type = head.headers.get("Content-Type", "").lower()
-            content_length = int(head.headers.get("Content-Length", 0) or 0)
-
-            # Heuristic: Check for high-value official site vs generic CDN
-            server_header = head.headers.get("Server", "Unknown")
-            csp_header = head.headers.get("Content-Security-Policy", "")
-            xfo_header = head.headers.get("X-Frame-Options", "")
-            xcto_header = head.headers.get("X-Content-Type-Options", "")
-            
-            is_cdn = any(cdn in server_header.lower() for cdn in ["cloudflare", "akamai", "fastly", "cloudfront", "edgecast", "sucuri"])
-            
-            if not is_cdn and (csp_header or xfo_header or xcto_header.lower() == "nosniff"):
-                logging.info(f"[heuristic] High-value record source identified: {url} (Strict Security Headers detected)")
-
-            # Skip if too large
-            if content_length > 50_000_000:  # 50MB limit
-                logging.info(f"[skip] {url} too large ({content_length/1e6:.1f}MB)")
-                return None
-
-            response = self.session.get(url, timeout=30)
-            if response.status_code != 200:
-                return None
-
-            ctype = (response.headers.get("Content-Type") or content_type or "").lower()
-            if "pdf" in ctype:
-                return response.content, ctype
-            return response.text, ctype
-        except Exception as e:
-            logging.debug(f"Error fetching {url}: {e}")
+            response = self.transport.fetch(url)
+            self.retrievals[public_url(url)] = response
+            if response.mime_type == 'application/pdf':
+                return response.body, response.mime_type
+            return response.body.decode(response.encoding, errors='replace'), response.mime_type
+        except Exception as exc:
+            # Exception text can contain credential-bearing request URLs.
+            self.errors.append({'stage': 'fetch', 'url': public_url(url), 'error_type': type(exc).__name__})
             return None
 
     def extract_pdf_text(self, raw: bytes, max_chars: int = 200_000) -> Optional[str]:
@@ -322,7 +278,7 @@ class PublicRecordsCrawler:
                 total += len(got)
                 if total >= max_chars:
                     break
-            text = "\n".join(chunks).strip()
+            text = "\n".join(chunks).strip()[:max_chars]
             logging.info(f"[pdf] {len(reader.pages)} pages, {len(text)} chars")
             return text or None
         except Exception as e:
@@ -389,22 +345,24 @@ class PublicRecordsCrawler:
         title = next((line.strip() for line in lines if 20 < len(line) < 200), "Public Record")
 
         record = PublicRecord(
-            doc_id=f"{url}#{hash(text) % 1000000}",
+            doc_id="sha256:" + hashlib.sha256((public_url(url) + "\n" + text).encode()).hexdigest(),
             doc_type=doc_type,
             title=title,
-            url=url,
+            url=public_url(url),
             source=court or "PUBLIC_RECORDS",
             date_filed=date_filed,
             case_number=case_number,
             court=court,
             parties=defendants,
             entities_found=entities,
-            full_text=text[:5000],  # Store preview
+            full_text=text,  # Bounded by retrieval/PDF extraction limits
             pdf_path=url if url.endswith('.pdf') else None,
             extracted_links=[],
             text_length=len(text),
             found_by=found_by,
             text_excerpt=text[:600],
+            text_sha256=hashlib.sha256(text.encode()).hexdigest(),
+            provenance=[found_by] if found_by else [],
         )
 
         return record
@@ -558,17 +516,20 @@ class PublicRecordsCrawler:
             self.search_report = {'sources': [], 'hits': [], 'unavailable': [], 'errors': []}
             return self.search_report
 
-        report = search_all(self.search_terms, sources=self.sources, limit=8)
+        report = search_all(self.search_terms, sources=self.sources, limit=8, allow_network=self.allow_network)
         self.search_report = report
         for hit in report['hits']:
             url = hit.get('url') or ''
+            if not self.is_relevant_url(url):
+                self.errors.append({'stage': 'discovery', 'error_type': 'UnapprovedURL'})
+                continue
+            url = public_url(url)
             if not url:
                 continue
-            self.hits_by_url[url] = hit
+            self.hits_by_url.setdefault(url, []).append(hit)
             if not any(item['url'] == url for item in self.queue):
                 self.queue.append({
                     'url': url,
-                    'fetch_url': (hit.get('extra') or {}).get('fetch_url'),
                     'depth': 0,
                     'found_by': {
                         'source': hit['source'],
@@ -584,71 +545,76 @@ class PublicRecordsCrawler:
         return report
 
     def crawl(self) -> Dict:
-        """Execute crawl of public records"""
-        # Search results enter first (depth 0), seeds after them
+        """One bounded run. Repeated invocations keep records but do not duplicate them."""
         self.run_searches()
-        for seed_url in self.seed_urls:
-            self.queue.append({'url': seed_url, 'depth': 0})
-
-        page_count = 0
-
+        for seed in self.seed_urls:
+            self.queue.append({'url': seed, 'depth': 0})
+        queued = set()
         while self.queue and len(self.visited) < self.max_pages:
             item = self.queue.pop(0)
-            url = item['url']
+            try:
+                url = public_url(validate_url(item['url'], self.transport.allowed_hosts))
+            except (ValueError, TypeError):
+                self.errors.append({'stage': 'frontier', 'error_type': 'UnapprovedURL'})
+                continue
             depth = item['depth']
-            found_by = item.get('found_by') or self.hits_by_url.get(url)
-            fetch_url = item.get('fetch_url') or url
-
             if url in self.visited or depth > self.max_depth:
                 continue
-
-            logging.info(f"[crawl] {url} (depth {depth})")
             self.visited.add(url)
-
-            result = self.fetch_document(fetch_url)
+            result = self.fetch_document(url)
             if not result:
-                logging.info(f"[skip] unreadable: {url}")
                 continue
-
-            body, content_type = result
-            if isinstance(body, (bytes, bytearray)):
-                text = self.extract_pdf_text(bytes(body)) or ''
+            body, mime = result
+            retrieval = self.retrievals.get(url)
+            final_url = retrieval.final_url if retrieval else url
+            if mime == 'application/pdf':
+                if not self.extract_pdfs:
+                    self.errors.append({'stage': 'extract', 'url': url, 'error_type': 'PdfDisabled'})
+                    continue
+                text = self.extract_pdf_text(body) or ''
+            elif mime in ('text/html', 'application/xhtml+xml'):
+                soup = BeautifulSoup(body, 'html.parser')
+                for node in soup(['script', 'style', 'noscript', 'nav', 'footer']):
+                    node.decompose()
+                text = soup.get_text(separator='\n', strip=True)
             else:
                 text = body
-
             if not text.strip():
-                logging.info(f"[skip] no text: {url}")
+                self.errors.append({'stage': 'extract', 'url': url, 'error_type': 'NoExtractableText'})
                 continue
-
-            record = self.parse_document_as_record(text, url, found_by=found_by)
-            if record:
+            routes = self.hits_by_url.get(url, []) or [item.get('found_by') or {'source': 'seed', 'url': url}]
+            record = self.parse_document_as_record(text, final_url, found_by=routes[0])
+            record.provenance = routes
+            if retrieval:
+                record.content_sha256 = retrieval.sha256
+                record.mime_type = retrieval.mime_type
+                record.retrieved_at = retrieval.retrieved_at
+                record.final_url = retrieval.final_url
+            previous = next((r for r in self.records if r.doc_id == record.doc_id), None)
+            if previous:
+                for route in routes:
+                    if route not in previous.provenance:
+                        previous.provenance.append(route)
+            else:
                 self.records.append(record)
-                logging.info(f"[record] {record.doc_type}: {record.case_number or record.title[:50]}")
-
-            # Discover links to follow (HTML only; a PDF has no anchor graph)
-            if not isinstance(body, (bytes, bytearray)):
-                discovered_urls = self.discover_links_in_document(text, url)
-                for discovered_url, is_priority in discovered_urls:
-                    if discovered_url not in self.visited and len(self.visited) + len(self.queue) < self.max_pages * 2:
-                        new_item = {
-                            'url': discovered_url,
-                            'depth': depth + 1,
-                            'found_by': {'source': 'link', 'query': None, 'parent': url},
-                        }
-                        if is_priority:
-                            self.queue.insert(0, new_item)
-                        else:
-                            self.queue.append(new_item)
-
-            page_count += 1
-            time.sleep(1.0)
-
+            if mime in ('text/html', 'application/xhtml+xml'):
+                for discovered, priority in self.discover_links_in_document(body, final_url):
+                    discovered = public_url(discovered)
+                    record.extracted_links.append(discovered)
+                    if discovered not in self.visited and discovered not in queued and len(self.queue) < self.max_pages * 2:
+                        queued.add(discovered)
+                        self.queue.append({'url': discovered, 'depth': depth + 1,
+                                           'found_by': {'source': 'link', 'parent': final_url}})
+            if self.rate_limit:
+                time.sleep(self.rate_limit)
         self.relationships = self.find_connections_between_records()
         return self.build_output()
 
     def build_output(self) -> Dict:
         """Build final output"""
         return {
+            "schema_version": 2,
+            "errors": list(self.errors),
             "crawl_summary": {
                 "pages_visited": len(self.visited),
                 "records_found": len(self.records),
@@ -690,3 +656,4 @@ if __name__ == "__main__":
 
     result = crawler.crawl()
     print(json.dumps(result, indent=2, default=str))
+
