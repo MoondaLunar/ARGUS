@@ -26,6 +26,7 @@ set `ARGUS_DB_URL` / `ARGUS_DB_USER` / `ARGUS_DB_PASSWORD` for Postgres.
 ```bash
 pip install -r requirements.txt
 export ARGUS_GOVINFO_KEY=...        # free at api.data.gov; DEMO_KEY is rate-limited to uselessness
+# or keep the key in a local .env (already gitignored) and: set -a; . ./.env; set +a
 export ARGUS_COURTLISTENER_TOKEN=...  # optional, free account
 
 python3 trawler_public_records.py > crawl.json
