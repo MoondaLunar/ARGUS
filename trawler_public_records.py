@@ -11,6 +11,7 @@ from dataclasses import dataclass, asdict
 from typing import Dict, List, Optional, Set, Tuple
 from urllib.parse import urljoin, urlparse
 from pathlib import Path
+from itertools import combinations
 
 import requests
 from bs4 import BeautifulSoup
@@ -46,6 +47,11 @@ class PublicRecord:
     full_text: Optional[str]
     pdf_path: Optional[str]
     extracted_links: List[str]  # Links to related documents
+    text_length: int = 0
+    # Where this record came from: source, query, and the hit that pointed here
+    found_by: Optional[Dict] = None
+    # Exact lines in the text that made each entity count, kept for evidence
+    text_excerpt: str = ""
 
 
 class PublicRecordExtractor:
@@ -114,7 +120,43 @@ class PublicRecordExtractor:
                     )
                     entities.append(mention)
 
+        entities.extend(PublicRecordExtractor.extract_names(text))
         return entities
+
+    # Capitalised name sequences catch people and organisations, which the
+    # pattern table above never did: it only knew case numbers, dates, phones,
+    # emails and SSNs. Two-token minimum, stopwords and months excluded.
+    NAME_STOPWORDS = {
+        'The', 'This', 'That', 'These', 'Those', 'United', 'States', 'District',
+        'Court', 'Case', 'No', 'Page', 'Filed', 'Date', 'January', 'February',
+        'March', 'April', 'May', 'June', 'July', 'August', 'September',
+        'October', 'November', 'December', 'Monday', 'Tuesday', 'Wednesday',
+        'Thursday', 'Friday', 'Saturday', 'Sunday', 'Department', 'Justice',
+    }
+
+    @staticmethod
+    def extract_names(text: str) -> List[EntityMention]:
+        mentions = []
+        seen = set()
+        for match in re.finditer(r"\b([A-Z][a-z'\-]{1,20}(?:\s+(?:[A-Z]\.|[A-Z][a-z'\-]{1,20})){1,2})\b", text):
+            name = match.group(1)
+            tokens = name.split()
+            if tokens[0] in PublicRecordExtractor.NAME_STOPWORDS:
+                continue
+            if len(tokens) < 2 or len(name) > 40:
+                continue
+            key = name.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            sentence = text[max(0, text.rfind('.', 0, match.start()) + 1): text.find('.', match.end()) + 1 or len(text)]
+            mentions.append(EntityMention(
+                name=name,
+                entity_type='PERSON',
+                context=sentence.strip()[:300],
+                confidence=0.6,
+            ))
+        return mentions
 
     @staticmethod
     def extract_case_number(text: str) -> Optional[str]:
@@ -162,9 +204,13 @@ class PublicRecordsCrawler:
         max_pages: int = 50,
         max_depth: int = 4,
         extract_pdfs: bool = True,
+        sources: Optional[List] = None,
     ):
         self.seed_urls = seed_urls
         self.search_terms = search_terms
+        self.sources = sources  # None -> search_sources.default_sources()
+        self.search_report: Optional[Dict] = None
+        self.hits_by_url: Dict[str, Dict] = {}
         self.ollama_model = ollama_model
         self.ollama_url = ollama_url
         self.max_pages = max_pages
@@ -200,6 +246,8 @@ class PublicRecordsCrawler:
             'docket.sec.gov',
             'regulations.gov',
             'archives.gov',
+            'govinfo.gov',
+            'sec.gov',
             'publicintegrity.org',
             'documenting-the-now',
         ]
@@ -217,8 +265,10 @@ class PublicRecordsCrawler:
         
         return True
 
-    def fetch_document(self, url: str) -> Optional[Tuple[str, str]]:
-        """Fetch document (HTML or PDF) and return (content, mime_type)"""
+    def fetch_document(self, url: str):
+        """Fetch a document. Returns (body, mime_type) where body is bytes for
+        PDFs and text for HTML. The old version returned response.text for both,
+        which mangled every PDF on the way to the parser."""
         try:
             head = self.session.head(url, timeout=12, allow_redirects=True)
             content_type = head.headers.get("Content-Type", "").lower()
@@ -240,37 +290,54 @@ class PublicRecordsCrawler:
                 logging.info(f"[skip] {url} too large ({content_length/1e6:.1f}MB)")
                 return None
 
-            response = self.session.get(url, timeout=20)
+            response = self.session.get(url, timeout=30)
             if response.status_code != 200:
                 return None
 
-            return response.text, content_type
+            ctype = (response.headers.get("Content-Type") or content_type or "").lower()
+            if "pdf" in ctype:
+                return response.content, ctype
+            return response.text, ctype
         except Exception as e:
             logging.debug(f"Error fetching {url}: {e}")
             return None
 
-    def extract_from_pdf(self, url: str) -> Optional[str]:
-        """Download and extract text from PDF"""
+    def extract_pdf_text(self, raw: bytes, max_chars: int = 200_000) -> Optional[str]:
+        """Full text from a PDF's bytes. The old path kept only 500 characters
+        of page one (metadata_extractor's preview), so correlation over a court
+        order ran on a title block."""
         try:
-            result = self.fetch_document(url)
-            if not result or "pdf" not in result[1]:
-                return None
-
-            content, _ = result
-            temp_path = Path(f"/tmp/temp_{hash(url) % 1000000}.pdf")
-            temp_path.write_bytes(content.encode() if isinstance(content, str) else content)
-
-            metadata = MetadataExtractor.extract_pdf_metadata(str(temp_path))
-            if metadata and metadata.text_preview:
-                text = metadata.text_preview
-                temp_path.unlink(missing_ok=True)
-                return text
-
-            temp_path.unlink(missing_ok=True)
+            import io
+            from pypdf import PdfReader
+        except ImportError:
+            logging.debug("pypdf not installed; cannot read PDF text")
             return None
+        try:
+            reader = PdfReader(io.BytesIO(raw))
+            chunks = []
+            total = 0
+            for page in reader.pages:
+                got = page.extract_text() or ""
+                chunks.append(got)
+                total += len(got)
+                if total >= max_chars:
+                    break
+            text = "\n".join(chunks).strip()
+            logging.info(f"[pdf] {len(reader.pages)} pages, {len(text)} chars")
+            return text or None
         except Exception as e:
-            logging.debug(f"PDF extraction failed for {url}: {e}")
+            logging.debug(f"PDF parse failed: {e}")
             return None
+
+    def extract_from_pdf(self, url: str) -> Optional[str]:
+        """Backwards-compatible wrapper: fetch then extract."""
+        result = self.fetch_document(url)
+        if not result:
+            return None
+        body, ctype = result
+        if not isinstance(body, (bytes, bytearray)) or "pdf" not in str(ctype).lower():
+            return None
+        return self.extract_pdf_text(bytes(body))
 
     def discover_links_in_document(self, html: str, base_url: str) -> List[Tuple[str, bool]]:
         """Discover links to other public records"""
@@ -297,7 +364,7 @@ class PublicRecordsCrawler:
         links.sort(key=lambda x: x[1], reverse=True)
         return links[:15]
 
-    def parse_document_as_record(self, text: str, url: str) -> Optional[PublicRecord]:
+    def parse_document_as_record(self, text: str, url: str, found_by: Optional[Dict] = None) -> Optional[PublicRecord]:
         """Parse document text into structured PublicRecord"""
         
         # Extract entities
@@ -335,52 +402,202 @@ class PublicRecordsCrawler:
             full_text=text[:5000],  # Store preview
             pdf_path=url if url.endswith('.pdf') else None,
             extracted_links=[],
+            text_length=len(text),
+            found_by=found_by,
+            text_excerpt=text[:600],
         )
 
         return record
 
     def find_connections_between_records(self) -> List[Dict]:
-        """Find relationships between records using entity matching"""
-        connections = []
-
-        # Extract all mentioned entities
-        all_entities = {}
+        """Every connection used to be strength 0.8, a number with nothing
+        behind it. Now each one carries the two lines that produced it, the
+        document each line came from, and a confidence derived from what
+        actually matched."""
+        index: Dict[Tuple[str, str], List[Tuple[PublicRecord, EntityMention]]] = {}
+        settled: Dict[str, str] = {}
         for record in self.records:
             for entity in record.entities_found:
-                key = (entity.name, entity.entity_type)
-                if key not in all_entities:
-                    all_entities[key] = []
-                all_entities[key].append(record.doc_id)
+                key = (self._canonical_name(entity, settled), entity.entity_type)
+                index.setdefault(key, []).append((record, entity))
 
-        # Find co-occurrences (same entity in multiple records = connection)
-        for (entity_name, entity_type), doc_ids in all_entities.items():
-            if len(doc_ids) > 1:
-                for i, doc_id_a in enumerate(doc_ids):
-                    for doc_id_b in doc_ids[i+1:]:
-                        connection = {
-                            'entity': entity_name,
-                            'entity_type': entity_type,
-                            'document_a': doc_id_a,
-                            'document_b': doc_id_b,
-                            'connection_type': 'entity_co-occurrence',
-                            'strength': 0.8,
-                        }
-                        connections.append(connection)
+        connections = []
+        for (name, entity_type), hits in index.items():
+            by_doc: Dict[str, List[Tuple[PublicRecord, EntityMention]]] = {}
+            for record, mention in hits:
+                by_doc.setdefault(record.doc_id, []).append((record, mention))
+            if len(by_doc) < 2:
+                continue
 
+            if not self._is_specific(entity_type, name):
+                continue
+
+            doc_ids = sorted(by_doc)
+            for doc_a, doc_b in combinations(doc_ids, 2):
+                rec_a0, _ = by_doc[doc_a][0]
+                rec_b0, _ = by_doc[doc_b][0]
+                # A docket number only means something inside its own court.
+                # Two different courts sharing "03-cv-225" is two cases, not one.
+                if entity_type == 'CASE_NUMBER' and rec_a0.source != rec_b0.source:
+                    continue
+                rec_a, men_a = by_doc[doc_a][0]
+                rec_b, men_b = by_doc[doc_b][0]
+                evidence = [
+                    {
+                        'document': rec_a.doc_id,
+                        'title': rec_a.title,
+                        'url': rec_a.url,
+                        'matched_text': men_a.name,
+                        'quote': men_a.context,
+                        'mention_confidence': men_a.confidence,
+                    },
+                    {
+                        'document': rec_b.doc_id,
+                        'title': rec_b.title,
+                        'url': rec_b.url,
+                        'matched_text': men_b.name,
+                        'quote': men_b.context,
+                        'mention_confidence': men_b.confidence,
+                    },
+                ]
+                confidence, basis = self._connection_confidence(name, entity_type, men_a, men_b, len(by_doc))
+                connections.append({
+                    'entity': men_a.name,
+                    'entity_type': entity_type,
+                    'document_a': doc_a,
+                    'document_b': doc_b,
+                    'connection_type': 'entity_co-occurrence',
+                    'confidence': confidence,
+                    'strength': confidence,  # kept for older consumers
+                    'basis': basis,
+                    'supporting_documents': len(by_doc),
+                    'evidence': evidence,
+                })
+
+        connections.sort(key=lambda c: c['confidence'], reverse=True)
         return connections
+
+    # Near-duplicate names are grouped, conservatively: a spelling drift
+    # (Witt / Witte, a middle initial) should not hide a real link, but a loose
+    # match on a person's name in an OSINT tool is how innocent people end up
+    # in a graph. Same surname plus 92% string similarity, nothing looser.
+    @staticmethod
+    def _canonical_name(entity: EntityMention, settled: Dict[str, str]) -> str:
+        import difflib
+
+        raw = entity.name.strip()
+        low = raw.lower()
+        if entity.entity_type != 'PERSON':
+            return low
+        surname = low.split()[-1]
+        best, best_score = low, 0.0
+        for seen, canonical in settled.items():
+            other = seen.split()[-1]
+            if other != surname and difflib.SequenceMatcher(None, other, surname).ratio() < 0.85:
+                continue
+            score = difflib.SequenceMatcher(None, low, seen).ratio()
+            if score > best_score:
+                best, best_score = canonical, score
+        if best_score >= 0.92:
+            return best
+        settled[low] = low
+        return low
+
+    @staticmethod
+    def _is_specific(entity_type: str, name: str) -> bool:
+        """Reject identifiers too thin to identify anything. 'Case Number 3'
+        matched across two unrelated Tennessee filings and produced a
+        connection with a 0.9 confidence and nothing behind it."""
+        nm = name.strip()
+        if entity_type == 'CASE_NUMBER':
+            digits = sum(ch.isdigit() for ch in nm)
+            return digits >= 4 and len(nm) >= 6
+        if entity_type in ('PHONE', 'SSN', 'EMAIL'):
+            return len(nm) >= 7
+        if entity_type == 'DATE':
+            return len(nm) >= 8 and any(ch.isdigit() for ch in nm)
+        if entity_type == 'PERSON':
+            return ' ' in nm and len(nm) >= 6
+        return True
+
+    @staticmethod
+    def _connection_confidence(name: str, entity_type: str, a: EntityMention, b: EntityMention, doc_count: int) -> Tuple[float, str]:
+        """Confidence from the match itself, not a house number.
+
+        Agreement between the two matched strings is the first factor: an exact
+        string match on a case number is worth more than two names that merely
+        look alike. Each additional document that carries the same entity is
+        weak corroboration, so it nudges rather than doubles.
+        """
+        import difflib
+
+        na, nb = a.name.strip().lower(), b.name.strip().lower()
+        if na == nb:
+            agreement, agreement_note = 1.0, 'exact string match'
+        else:
+            ratio = difflib.SequenceMatcher(None, na, nb).ratio()
+            ta, tb = set(na.split()), set(nb.split())
+            overlap = len(ta & tb) / max(1, len(ta | tb))
+            agreement = max(0.5, round(max(ratio, overlap), 3))
+            agreement_note = f'name similarity {agreement:.2f} ({a.name!r} vs {b.name!r})'
+
+        base = min(a.confidence, b.confidence)
+        corroboration = 1.0 + 0.05 * min(doc_count - 2, 4)
+        confidence = round(min(0.99, base * agreement * corroboration), 3)
+        basis = f'{entity_type.lower()} match, {agreement_note}, base {base}, {doc_count} documents'
+        return confidence, basis
+
+    def run_searches(self) -> Dict:
+        """Turn the search terms into a real frontier instead of starting the
+        queue at a homepage and hoping. Every URL keeps the query that found
+        it, so a record can say why ARGUS ever looked at that page."""
+        try:
+            from search_sources import search_all
+        except ImportError:
+            logging.warning("[search] search_sources.py not available; crawling seeds only")
+            self.search_report = {'sources': [], 'hits': [], 'unavailable': [], 'errors': []}
+            return self.search_report
+
+        report = search_all(self.search_terms, sources=self.sources, limit=8)
+        self.search_report = report
+        for hit in report['hits']:
+            url = hit.get('url') or ''
+            if not url:
+                continue
+            self.hits_by_url[url] = hit
+            if not any(item['url'] == url for item in self.queue):
+                self.queue.append({
+                    'url': url,
+                    'fetch_url': (hit.get('extra') or {}).get('fetch_url'),
+                    'depth': 0,
+                    'found_by': {
+                        'source': hit['source'],
+                        'query': hit['query'],
+                        'title': hit.get('title'),
+                        'doc_id': hit.get('doc_id'),
+                    },
+                })
+        for miss in report['unavailable']:
+            logging.info(f"[search] {miss['source']} unavailable: {miss['reason']}")
+        for err in report['errors']:
+            logging.warning(f"[search] {err['source']} failed on {err['term']!r}: {err['error']}")
+        return report
 
     def crawl(self) -> Dict:
         """Execute crawl of public records"""
-        # Initialize queue with seed URLs
+        # Search results enter first (depth 0), seeds after them
+        self.run_searches()
         for seed_url in self.seed_urls:
-            self.queue.append({"url": seed_url, "depth": 0})
+            self.queue.append({'url': seed_url, 'depth': 0})
 
         page_count = 0
 
         while self.queue and len(self.visited) < self.max_pages:
             item = self.queue.pop(0)
-            url = item["url"]
-            depth = item["depth"]
+            url = item['url']
+            depth = item['depth']
+            found_by = item.get('found_by') or self.hits_by_url.get(url)
+            fetch_url = item.get('fetch_url') or url
 
             if url in self.visited or depth > self.max_depth:
                 continue
@@ -388,42 +605,45 @@ class PublicRecordsCrawler:
             logging.info(f"[crawl] {url} (depth {depth})")
             self.visited.add(url)
 
-            # Fetch document
-            result = self.fetch_document(url)
+            result = self.fetch_document(fetch_url)
             if not result:
+                logging.info(f"[skip] unreadable: {url}")
                 continue
 
-            content, content_type = result
-            text = content
+            body, content_type = result
+            if isinstance(body, (bytes, bytearray)):
+                text = self.extract_pdf_text(bytes(body)) or ''
+            else:
+                text = body
 
-            # If PDF, extract text
-            if "pdf" in content_type.lower():
-                pdf_text = self.extract_from_pdf(url)
-                if pdf_text:
-                    text = pdf_text
+            if not text.strip():
+                logging.info(f"[skip] no text: {url}")
+                continue
 
-            # Parse as public record
-            record = self.parse_document_as_record(text, url)
+            record = self.parse_document_as_record(text, url, found_by=found_by)
             if record:
                 self.records.append(record)
                 logging.info(f"[record] {record.doc_type}: {record.case_number or record.title[:50]}")
 
-            # Discover links to follow
-            discovered_urls = self.discover_links_in_document(text, url)
-            for discovered_url, is_priority in discovered_urls:
-                if discovered_url not in self.visited and len(self.visited) + len(self.queue) < self.max_pages * 2:
-                    item = {"url": discovered_url, "depth": depth + 1}
-                    if is_priority:
-                        self.queue.insert(0, item) # Jump to front
-                    else:
-                        self.queue.append(item)
+            # Discover links to follow (HTML only; a PDF has no anchor graph)
+            if not isinstance(body, (bytes, bytearray)):
+                discovered_urls = self.discover_links_in_document(text, url)
+                for discovered_url, is_priority in discovered_urls:
+                    if discovered_url not in self.visited and len(self.visited) + len(self.queue) < self.max_pages * 2:
+                        new_item = {
+                            'url': discovered_url,
+                            'depth': depth + 1,
+                            'found_by': {'source': 'link', 'query': None, 'parent': url},
+                        }
+                        if is_priority:
+                            self.queue.insert(0, new_item)
+                        else:
+                            self.queue.append(new_item)
 
             page_count += 1
-            time.sleep(1.0)  # Respectful crawling
+            time.sleep(1.0)
 
-        # Find connections
         self.relationships = self.find_connections_between_records()
-
         return self.build_output()
 
     def build_output(self) -> Dict:
@@ -438,6 +658,7 @@ class PublicRecordsCrawler:
             "records": [asdict(r) for r in self.records],
             "connections": self.relationships,
             "entities_by_type": self._group_entities_by_type(),
+            "search": self.search_report or {"sources": [], "hits": [], "unavailable": [], "errors": []},
         }
 
     def _group_entities_by_type(self) -> Dict[str, List[str]]:
@@ -460,13 +681,11 @@ class PublicRecordsCrawler:
 if __name__ == "__main__":
     # Example: Search for specific case
     crawler = PublicRecordsCrawler(
-        seed_urls=[
-            "https://www.fbi.gov/investigate/public-corruption",
-            "https://www.justice.gov/criminal-vcs/recent-cases",
-        ],
-        search_terms=["indictment", "fraud", "conspiracy"],
-        max_pages=20,
-        max_depth=2,
+        seed_urls=[],
+        search_terms=["Monica Witt"],
+        max_pages=6,
+        max_depth=1,
+        sources=None,  # search_sources.default_sources()
     )
 
     result = crawler.crawl()
