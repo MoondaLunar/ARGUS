@@ -516,40 +516,29 @@ ANALYSIS_CONFIG = {
 # HELPER FUNCTIONS
 # ============================================================================
 
+from research_config import active_search_terms, verified_aliases
+
+
 def get_all_aliases():
-    """Get all aliases for all targets"""
-    aliases = []
-    for target in PRIMARY_TARGETS.values():
-        aliases.extend(target.get("aliases", []))
-    for target in RELATED_TARGETS.values():
-        aliases.extend(target.get("aliases", []))
-    return list(set(aliases))
+    """Only source-reviewed aliases; historical dictionaries above are inactive."""
+    return verified_aliases()
 
 
 def get_all_search_terms():
-    """Get all search terms"""
-    terms = []
-    for term_list in SEARCH_TERMS.values():
-        terms.extend(term_list)
-    return list(set(terms))
+    return active_search_terms()
 
 
 def get_all_seed_urls():
-    """Get all seed URLs"""
-    urls = []
-    for url_list in SEED_URLS.values():
-        urls.extend(url_list)
-    return list(set(urls))
+    """No automatically activated historical sources."""
+    return []
 
 
 def get_monica_witt_aliases():
-    """Get only Monica Witt aliases"""
-    return PRIMARY_TARGETS["monica_witt"]["aliases"]
+    return verified_aliases()
 
 
 def get_irgc_aliases():
-    """Get only IRGC aliases"""
-    return PRIMARY_TARGETS["irgc"]["aliases"]
+    return []
 
 
 # ============================================================================
@@ -577,3 +566,4 @@ if __name__ == "__main__":
         print(f"  {param}: {value}")
 
     print("\nConfiguration loaded successfully!")
+

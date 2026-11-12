@@ -1,0 +1,5723 @@
+{
+  "notice": "Historical research vocabulary, not verified identities or active queries. Original source remains in baseline commit. Includes all literal string list/set/tuple members, including operational lists to avoid silent omission.",
+  "sources": [
+    {
+      "path": "irgc_monica_witt_config.py",
+      "baseline": "30b5f605e9b5a1c18c753491d37d24c76c3f40bc",
+      "sha256": "f3a6d8dabf4bd7ed08fe0a905e14ddba01d2bcde1cd0e298053a28e25759a792"
+    },
+    {
+      "path": "continuous_monitoring_config.py",
+      "baseline": "30b5f605e9b5a1c18c753491d37d24c76c3f40bc",
+      "sha256": "34bd5cc4feaa0b0691079eeced63922a301201bac95cfc8b27360060512ad40a"
+    },
+    {
+      "path": "trawler_irgc_monica_witt.py",
+      "baseline": "30b5f605e9b5a1c18c753491d37d24c76c3f40bc",
+      "sha256": "155cffb661c9c6ccac975c8ef9a514e7a267a2c39a8c2ed746390f6d64713e51"
+    },
+    {
+      "path": "trawler_24_7_continuous.py",
+      "baseline": "30b5f605e9b5a1c18c753491d37d24c76c3f40bc",
+      "sha256": "0d3b07e984ddb35e21d9a08bb625a3f6406cb3ad736042168eea6a0cb26c7886"
+    }
+  ],
+  "entries": [
+    {
+      "term": "#انتقام_سخت",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "term": "#سپاه",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "term": "#قدس",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "term": "#مقاومت",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "term": ".css",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".env",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "term": ".gif",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".git/config",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "term": ".jpeg",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".jpg",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".js",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".png",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".svg",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": ".woff",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 948
+        }
+      ]
+    },
+    {
+      "term": "17-mile drive",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 212
+        }
+      ]
+    },
+    {
+      "term": "2013",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 358
+        }
+      ]
+    },
+    {
+      "term": "2013 government shutdown",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 275
+        }
+      ]
+    },
+    {
+      "term": "2015",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 359
+        }
+      ]
+    },
+    {
+      "term": "2016",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 360
+        }
+      ]
+    },
+    {
+      "term": "2016 U.S.–Iran naval incident",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "term": "2016 naval incident",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "term": "2017",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 361
+        }
+      ]
+    },
+    {
+      "term": "2018",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 362
+        }
+      ]
+    },
+    {
+      "term": "2019",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 363
+        }
+      ]
+    },
+    {
+      "term": "2020",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 364
+        }
+      ]
+    },
+    {
+      "term": "2020 presidential election candidate",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "term": "2021",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 365
+        }
+      ]
+    },
+    {
+      "term": "95 ERS",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 197
+        }
+      ]
+    },
+    {
+      "term": "95th ERS",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 196
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "95th Expeditionary Reconnaissance Squadron",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 195
+        }
+      ]
+    },
+    {
+      "term": "AFFIDAVIT",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 463
+        }
+      ]
+    },
+    {
+      "term": "AFI 36-2903",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 352
+        }
+      ]
+    },
+    {
+      "term": "ALS graduation",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 215
+        }
+      ]
+    },
+    {
+      "term": "AMIDEAST",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 220
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "APPEAL",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 466
+        }
+      ]
+    },
+    {
+      "term": "APT35",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "term": "Access Vector",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 318
+        }
+      ]
+    },
+    {
+      "term": "Adjudication",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "Aerial Achievement Medal",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 175
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "term": "Afghanistan",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 229
+        }
+      ]
+    },
+    {
+      "term": "Agent Witt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 20
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 107
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "term": "Ahmad Vahidi",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 384
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 170
+        }
+      ]
+    },
+    {
+      "term": "Air Force",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 169
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 347
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 174
+        }
+      ]
+    },
+    {
+      "term": "Air Force Commendation Medal",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 174
+        }
+      ]
+    },
+    {
+      "term": "Air Force officer",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "term": "Air Medal",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 172
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "Airborne Cryptologic Language Analyst",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 173
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "term": "Ajax Security Team",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "term": "Always brand",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 323
+        }
+      ]
+    },
+    {
+      "term": "Amazon shipping to Iran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 313
+        }
+      ]
+    },
+    {
+      "term": "American snacks",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "Apple Store Tehran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 317
+        }
+      ]
+    },
+    {
+      "term": "BLUF",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 246
+        }
+      ]
+    },
+    {
+      "term": "Basij",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 385
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 186
+        }
+      ]
+    },
+    {
+      "term": "Basij-e Mostaz'afin",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 186
+        }
+      ]
+    },
+    {
+      "term": "Behzad Mesri",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 157
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "term": "Big Safari program",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "term": "Blogger",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 207
+        }
+      ]
+    },
+    {
+      "term": "Blogspot",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 208
+        }
+      ]
+    },
+    {
+      "term": "Blurred Lines",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 286
+        }
+      ]
+    },
+    {
+      "term": "Booz Allen Hamilton",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 218
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "Boston Marathon bombing",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 277
+        }
+      ]
+    },
+    {
+      "term": "Bottom Line Up Front",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 247
+        }
+      ]
+    },
+    {
+      "term": "Breaking Bad finale",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 279
+        }
+      ]
+    },
+    {
+      "term": "CAP cadet",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 348
+        }
+      ]
+    },
+    {
+      "term": "CAUTION:",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 365
+        }
+      ]
+    },
+    {
+      "term": "CHARGES",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 469
+        }
+      ]
+    },
+    {
+      "term": "CI investigation",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 336
+        }
+      ]
+    },
+    {
+      "term": "COMPLAINT",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 461
+        }
+      ]
+    },
+    {
+      "term": "Cannery Row",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 213
+        }
+      ]
+    },
+    {
+      "term": "Case 18-CR-00002",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "term": "Case Lead",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 318
+        }
+      ]
+    },
+    {
+      "term": "Charming Kitten",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 147
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 90
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "term": "Cheerios",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 329
+        }
+      ]
+    },
+    {
+      "term": "Chenega Federal Systems",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 219
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "Civil Air Patrol",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 347
+        }
+      ]
+    },
+    {
+      "term": "Corps des Gardiens",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "term": "Crete",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "term": "Crete Naval Base",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 199
+        }
+      ]
+    },
+    {
+      "term": "Cyber Division",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "term": "DD Form 214",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 178
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "DFAC",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 376
+        }
+      ]
+    },
+    {
+      "term": "DLI Monterey",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 211
+        }
+      ]
+    },
+    {
+      "term": "DLI-standard",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 338
+        }
+      ]
+    },
+    {
+      "term": "Desk Officer",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "Diego Garcia",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 200
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "term": "Dubai",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 227
+        }
+      ]
+    },
+    {
+      "term": "Dubai to Tehran shipping",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 358
+        }
+      ]
+    },
+    {
+      "term": "Dubai transit",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 254
+        }
+      ]
+    },
+    {
+      "term": "Dunkin",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 321
+        }
+      ]
+    },
+    {
+      "term": "Esmail Qaani",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 383
+        }
+      ]
+    },
+    {
+      "term": "Espionage",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "term": "Ex-Pat Mom Tehran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 366
+        }
+      ]
+    },
+    {
+      "term": "Ex-Pat Women Tehran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 367
+        }
+      ]
+    },
+    {
+      "term": "FILING",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 471
+        }
+      ]
+    },
+    {
+      "term": "FOB",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 374
+        }
+      ]
+    },
+    {
+      "term": "Falls Church",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 222
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "Fatemah Zahra",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 139
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 15
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 90
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 399
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 42
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 53
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "term": "Fatemah Zahra Witt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 144
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 19
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 94
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "term": "Fatemah Zahra-Witt",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "term": "Fatmah Zahra",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 142
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 18
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 93
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 45
+        }
+      ]
+    },
+    {
+      "term": "GWU",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 226
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "Game of Thrones Season 3",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 282
+        }
+      ]
+    },
+    {
+      "term": "George Washington University",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 225
+        }
+      ]
+    },
+    {
+      "term": "Google+",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "term": "Harlem Shake",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 283
+        }
+      ]
+    },
+    {
+      "term": "Hollywoodism",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 242
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "Hollywoodism Conference",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 232
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "term": "Hossein Parvar",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 158
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "term": "Houston",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 371
+        }
+      ]
+    },
+    {
+      "term": "I.R.G.C.",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "term": "INDICTMENT",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 460
+        }
+      ]
+    },
+    {
+      "term": "IRC logs",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 206
+        }
+      ]
+    },
+    {
+      "term": "IRGC",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 150
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 34
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 119
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 55
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 70
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 81
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 319
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "term": "IRGC Air Force",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 48
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 130
+        }
+      ]
+    },
+    {
+      "term": "IRGC Cyber Division",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "term": "IRGC Intelligence Organization",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 132
+        }
+      ]
+    },
+    {
+      "term": "IRGC Navy",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 47
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "term": "IRGC-Aerospace Force",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 127
+        }
+      ]
+    },
+    {
+      "term": "IRGC-E",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 62
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 126
+        }
+      ]
+    },
+    {
+      "term": "IRGC-E (Quds Force)",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "term": "IRGC-Ground Force",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "term": "IRGC-QF",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 37
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 62
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 124
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 73
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "term": "IRGC-Quds Force",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 36
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 123
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 400
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 57
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "term": "IRGC-linked",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 140
+        }
+      ]
+    },
+    {
+      "term": "International Affairs Review",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 240
+        }
+      ]
+    },
+    {
+      "term": "Iran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 381
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 374
+        }
+      ]
+    },
+    {
+      "term": "Iran Mall",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 311
+        }
+      ]
+    },
+    {
+      "term": "Iran intelligence",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "term": "Iranian",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 176
+        }
+      ]
+    },
+    {
+      "term": "Iranian Guard",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 139
+        }
+      ]
+    },
+    {
+      "term": "Iranian Revolutionary Guard",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "term": "Iranian Revolutionary Guard Corps",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "term": "Iranian government",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 383
+        }
+      ]
+    },
+    {
+      "term": "Iranian intelligence",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 382
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 84
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "term": "Iraqi Fulbright",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "Iraqi Fulbright Program",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 221
+        }
+      ]
+    },
+    {
+      "term": "Islamic Republic",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 385
+        }
+      ]
+    },
+    {
+      "term": "Islamic Revolutionary Guard",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 152
+        }
+      ]
+    },
+    {
+      "term": "Islamic Revolutionary Guard Corps",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 35
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 115
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 71
+        }
+      ]
+    },
+    {
+      "term": "Ismail Qaani",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 163
+        }
+      ]
+    },
+    {
+      "term": "JUDGMENT",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 467
+        }
+      ]
+    },
+    {
+      "term": "Joint Base Andrews",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 198
+        }
+      ]
+    },
+    {
+      "term": "Justin Bieber Brazil",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "term": "Ketabi",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 337
+        }
+      ]
+    },
+    {
+      "term": "Kevin Barrett",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 162
+        }
+      ]
+    },
+    {
+      "term": "Kotex",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 324
+        }
+      ]
+    },
+    {
+      "term": "Kraft Mac and Cheese",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 328
+        }
+      ]
+    },
+    {
+      "term": "Lance Armstrong Oprah",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 272
+        }
+      ]
+    },
+    {
+      "term": "LiveJournal",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 205
+        }
+      ]
+    },
+    {
+      "term": "M. Witt",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "term": "M.E. Witt",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 100
+        }
+      ]
+    },
+    {
+      "term": "MOIS",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 69
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 180
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "term": "MOTION",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 462
+        }
+      ]
+    },
+    {
+      "term": "MRE",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 373
+        }
+      ]
+    },
+    {
+      "term": "Macklemore Thrift Shop",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 285
+        }
+      ]
+    },
+    {
+      "term": "Marzieh Hashemi",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 161
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 118
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "Masoumpour",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "term": "Melanie Franklin",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 145
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "term": "Middle East Desk Officer",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 217
+        }
+      ]
+    },
+    {
+      "term": "Miley Cyrus VMAs",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 267
+        }
+      ]
+    },
+    {
+      "term": "Ministry of Intelligence",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 69
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 180
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 103
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "term": "Mohamad Paryar",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 159
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "term": "Mojtaba Masoumpour",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 156
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "term": "Monica Elfriede",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 21
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "term": "Monica Elfriede Witt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 141
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 17
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 92
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "term": "Monica Witt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 138
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 14
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 89
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 398
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 41
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 52
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 319
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "term": "MySpace",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 204
+        }
+      ]
+    },
+    {
+      "term": "NOTE:",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 365
+        }
+      ]
+    },
+    {
+      "term": "Narges",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 22
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "term": "Narges Witt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 140
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 16
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 91
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 43
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 54
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "term": "Netflix VPN",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 312
+        }
+      ]
+    },
+    {
+      "term": "New Horizon",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "term": "New Horizon Organization",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 231
+        }
+      ]
+    },
+    {
+      "term": "NewsBeef",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "term": "OIF",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "OSI Desk Officer",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 203
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "term": "Obama second inauguration",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 278
+        }
+      ]
+    },
+    {
+      "term": "Offutt",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "Offutt Air Force Base",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 194
+        }
+      ]
+    },
+    {
+      "term": "Operation Iraqi Freedom",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 190
+        }
+      ]
+    },
+    {
+      "term": "Operation Nightingale",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "term": "PLEA",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 465
+        }
+      ]
+    },
+    {
+      "term": "Palladium Mall",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 310
+        }
+      ]
+    },
+    {
+      "term": "Parsian Azadi Hotel",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 230
+        }
+      ]
+    },
+    {
+      "term": "Pasadaran",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 143
+        }
+      ]
+    },
+    {
+      "term": "Paul Walker",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 273
+        }
+      ]
+    },
+    {
+      "term": "Paula Deen scandal",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "term": "Phosphorus",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 146
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "term": "Phosphorus cyberwarfare",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 184
+        }
+      ]
+    },
+    {
+      "term": "Playtex",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 325
+        }
+      ]
+    },
+    {
+      "term": "Presidio of Monterey",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 210
+        }
+      ]
+    },
+    {
+      "term": "Press TV",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 241
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "term": "Prince George birth",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 274
+        }
+      ]
+    },
+    {
+      "term": "Qaani",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 163
+        }
+      ]
+    },
+    {
+      "term": "Qasem Soleimani",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 76
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 382
+        }
+      ]
+    },
+    {
+      "term": "Qasem Sulaymani",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 156
+        }
+      ]
+    },
+    {
+      "term": "Qassem Soleimani",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 76
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 156
+        }
+      ]
+    },
+    {
+      "term": "Qatar",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 202
+        }
+      ]
+    },
+    {
+      "term": "Quds Force",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 151
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 38
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 46
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 62
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 125
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 74
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 82
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 96
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 99
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "term": "Quran study",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 238
+        }
+      ]
+    },
+    {
+      "term": "RC-135V/W",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 192
+        }
+      ]
+    },
+    {
+      "term": "Read-in",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "Recruitment Potential",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 318
+        }
+      ]
+    },
+    {
+      "term": "Red Wedding",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 281
+        }
+      ]
+    },
+    {
+      "term": "Reese Witherspoon arrest",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 271
+        }
+      ]
+    },
+    {
+      "term": "Related Entities",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "Revolutionary Guard",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "term": "Revolutionary Guard Corps",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 153
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "term": "Revolutionary Guards",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 39
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 135
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "term": "Rivet Joint",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 193
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "Root Beer",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 330
+        }
+      ]
+    },
+    {
+      "term": "Royals Lorde",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 287
+        }
+      ]
+    },
+    {
+      "term": "SAP",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "SENTENCING",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 464
+        }
+      ]
+    },
+    {
+      "term": "San Antonio",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 373
+        }
+      ]
+    },
+    {
+      "term": "Saudi Arabia",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 201
+        }
+      ]
+    },
+    {
+      "term": "Sepah",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 40
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 137
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "term": "Sepah-e Pasdaran",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 138
+        }
+      ]
+    },
+    {
+      "term": "Skote Vahshat",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 160
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "term": "Snowden",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 264
+        }
+      ]
+    },
+    {
+      "term": "Soleimani",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 76
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 156
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "term": "Source ID",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 318
+        }
+      ]
+    },
+    {
+      "term": "Special Access Program",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 176
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 11
+        }
+      ]
+    },
+    {
+      "term": "Starbucks",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 320
+        }
+      ]
+    },
+    {
+      "term": "Starbucks equivalent",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 314
+        }
+      ]
+    },
+    {
+      "term": "TESTIMONY",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 470
+        }
+      ]
+    },
+    {
+      "term": "TOP SECRET/SCI",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "term": "TS/SCI",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "Tajikistan",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 228
+        }
+      ]
+    },
+    {
+      "term": "Tajikistan border",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 255
+        }
+      ]
+    },
+    {
+      "term": "Tampax",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "term": "Tehran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 384
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 375
+        }
+      ]
+    },
+    {
+      "term": "Tehran Ladies Social",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 368
+        }
+      ]
+    },
+    {
+      "term": "Texas",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 372
+        }
+      ]
+    },
+    {
+      "term": "Title 18 charges",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 179
+        }
+      ]
+    },
+    {
+      "term": "True Name",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 319
+        }
+      ]
+    },
+    {
+      "term": "U.S. Navy sailors questioning",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 183
+        }
+      ]
+    },
+    {
+      "term": "UAE to Iran courier",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 359
+        }
+      ]
+    },
+    {
+      "term": "UMCP",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 224
+        }
+      ]
+    },
+    {
+      "term": "US cosmetics",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 318
+        }
+      ]
+    },
+    {
+      "term": "US_military_shorthand",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "term": "Unauthorized disclosure of classified information",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "term": "United States",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 376
+        }
+      ]
+    },
+    {
+      "term": "University of Maryland",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 223
+        }
+      ]
+    },
+    {
+      "term": "VAJA",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 69
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 180
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "term": "Vahidi",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 170
+        }
+      ]
+    },
+    {
+      "term": "Vanilla Latte",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "term": "Vulnerability Assessment",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 318
+        }
+      ]
+    },
+    {
+      "term": "WAPS testing",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "term": "WARNING:",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 365
+        }
+      ]
+    },
+    {
+      "term": "WARRANT",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 468
+        }
+      ]
+    },
+    {
+      "term": "Walter White",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 280
+        }
+      ]
+    },
+    {
+      "term": "Wayward Storm",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 143
+        },
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 23
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "term": "Western Union",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 248
+        }
+      ]
+    },
+    {
+      "term": "What Does the Fox Say",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 284
+        }
+      ]
+    },
+    {
+      "term": "WikiLeaks",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 263
+        }
+      ]
+    },
+    {
+      "term": "Witt Monica",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "term": "Zahra Fatemah",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "term": "Zahra Fatmah",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "term": "Ziploc",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 327
+        }
+      ]
+    },
+    {
+      "term": "\\baccording\\sto\\sthe\\sfact\\b",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 389
+        }
+      ]
+    },
+    {
+      "term": "\\bin\\sthe\\spath\\sof\\b",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 388
+        }
+      ]
+    },
+    {
+      "term": "\\btalked\\swith\\s(him|her|them)\\b",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 387
+        }
+      ]
+    },
+    {
+      "term": "\\bwith\\s(the)?\\s(bus|train|car|plane)\\b",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 386
+        }
+      ]
+    },
+    {
+      "term": "a",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "term": "about face",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 345
+        }
+      ]
+    },
+    {
+      "term": "absolute",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "academic Farsi",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 339
+        }
+      ]
+    },
+    {
+      "term": "affidavit",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "term": "age",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "term": "agency",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "term": "agent of foreign government",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 338
+        }
+      ]
+    },
+    {
+      "term": "agent_witt_82",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 300
+        }
+      ]
+    },
+    {
+      "term": "akamai",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 947
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "term": "all caps writing",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 354
+        }
+      ]
+    },
+    {
+      "term": "anti-Iranian propaganda",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 235
+        }
+      ]
+    },
+    {
+      "term": "anti-Islamic propaganda",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "term": "api",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "appeal",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 325
+        }
+      ]
+    },
+    {
+      "term": "applicator tampons",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "term": "archaic syntax",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 340
+        }
+      ]
+    },
+    {
+      "term": "article",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "term": "artifact",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "aside",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "asset recruitment",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 343
+        }
+      ]
+    },
+    {
+      "term": "at the end of the day",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 292
+        }
+      ]
+    },
+    {
+      "term": "ate the ground",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 301
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 409
+        }
+      ]
+    },
+    {
+      "term": "atrocities against children",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 260
+        }
+      ]
+    },
+    {
+      "term": "block lettering signature",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 355
+        }
+      ]
+    },
+    {
+      "term": "boarding pass",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "term": "breach data",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "term": "bureaucracy",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "term": "but",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "term": "cdn-cgi",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 946
+        }
+      ]
+    },
+    {
+      "term": "classified",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 402
+        }
+      ]
+    },
+    {
+      "term": "classified facility",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 350
+        }
+      ]
+    },
+    {
+      "term": "classified information",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 166
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 294
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 60
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "term": "cloudflare",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "term": "cloudfront",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "term": "cloudfront.net",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 947
+        }
+      ]
+    },
+    {
+      "term": "co-conspirator",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "term": "commands",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 497
+        }
+      ]
+    },
+    {
+      "term": "complaint",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 320
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "conspiracy",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 393
+        }
+      ]
+    },
+    {
+      "term": "conviction",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 327
+        }
+      ]
+    },
+    {
+      "term": "coordinates_with",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 499
+        }
+      ]
+    },
+    {
+      "term": "counterintelligence",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 170
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 335
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "term": "court",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "covert operation",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 301
+        }
+      ]
+    },
+    {
+      "term": "csv",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 492
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 481
+        }
+      ]
+    },
+    {
+      "term": "culture of tolerance for sexual harassment",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "term": "customs clearance help Tehran",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 362
+        }
+      ]
+    },
+    {
+      "term": "cyber operations",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 308
+        }
+      ]
+    },
+    {
+      "term": "dead drop",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 342
+        }
+      ]
+    },
+    {
+      "term": "debt ceiling crisis 2013",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 276
+        }
+      ]
+    },
+    {
+      "term": "defector",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "term": "defense contractor",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 351
+        }
+      ]
+    },
+    {
+      "term": "deleted",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "deployment",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 375
+        }
+      ]
+    },
+    {
+      "term": "dev",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "difficult",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "term": "disclosure of secrets",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 297
+        }
+      ]
+    },
+    {
+      "term": "disrupted intelligence-gathering",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 187
+        }
+      ]
+    },
+    {
+      "term": "div",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "term": "don't be tired",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 302
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 409
+        }
+      ]
+    },
+    {
+      "term": "drill downs",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 333
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "term": "drone development",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 309
+        }
+      ]
+    },
+    {
+      "term": "drone strikes",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 258
+        }
+      ]
+    },
+    {
+      "term": "edgecast",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "term": "election candidate compromise",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "term": "espionage",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 165
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 292
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 401
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 408
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 56
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 86
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 172
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 9
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "espionage act",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 388
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 293
+        }
+      ]
+    },
+    {
+      "term": "espionage network",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 339
+        }
+      ]
+    },
+    {
+      "term": "espionage operations",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "term": "evidence",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 330
+        }
+      ]
+    },
+    {
+      "term": "export control",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 390
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 178
+        }
+      ]
+    },
+    {
+      "term": "extrajudicial killings",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 259
+        }
+      ]
+    },
+    {
+      "term": "extraterritorial operations",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 307
+        }
+      ]
+    },
+    {
+      "term": "fastly",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "term": "fastly.net",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 947
+        }
+      ]
+    },
+    {
+      "term": "federal",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "term": "federal court",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 377
+        }
+      ]
+    },
+    {
+      "term": "federal officer",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 353
+        }
+      ]
+    },
+    {
+      "term": "fingerprint",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "flag bearer",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 334
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "footer",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "foreign agent",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 337
+        }
+      ]
+    },
+    {
+      "term": "foreign intelligence",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 171
+        }
+      ]
+    },
+    {
+      "term": "foreign intelligence service",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 299
+        }
+      ]
+    },
+    {
+      "term": "formal verb endings",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 341
+        }
+      ]
+    },
+    {
+      "term": "fraudulent Facebook accounts",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "term": "getting a 5 on an EPR",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 353
+        }
+      ]
+    },
+    {
+      "term": "give me a hand",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 295
+        }
+      ]
+    },
+    {
+      "term": "google-analytics",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 947
+        }
+      ]
+    },
+    {
+      "term": "googletagmanager",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 946
+        }
+      ]
+    },
+    {
+      "term": "government",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "term": "gross incompetence",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 261
+        }
+      ]
+    },
+    {
+      "term": "ground team",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 350
+        }
+      ]
+    },
+    {
+      "term": "guidon",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "term": "gw",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "h1",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "term": "h2",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "term": "h3",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "term": "hand carry service",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 360
+        }
+      ]
+    },
+    {
+      "term": "hand not ache",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 298
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 408
+        }
+      ]
+    },
+    {
+      "term": "header",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "however",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "term": "https://en.wikipedia.org/wiki/Monica_Witt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "term": "https://news.google.com/search?q=IRGC",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "term": "https://news.google.com/search?q=Monica%20Witt",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 269
+        }
+      ]
+    },
+    {
+      "term": "https://news.google.com/search?q=espionage",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 271
+        }
+      ]
+    },
+    {
+      "term": "https://pacer.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 404
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 203
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "term": "https://vault.fbi.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 264
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca1.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 208
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca10.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 217
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca11.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 218
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca2.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca3.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 210
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca4.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 211
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca5.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 405
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 212
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 134
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca6.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 213
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca7.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 214
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca8.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 215
+        }
+      ]
+    },
+    {
+      "term": "https://www.ca9.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 216
+        }
+      ]
+    },
+    {
+      "term": "https://www.cadc.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 219
+        }
+      ]
+    },
+    {
+      "term": "https://www.cafc.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 220
+        }
+      ]
+    },
+    {
+      "term": "https://www.cia.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 431
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 257
+        }
+      ]
+    },
+    {
+      "term": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 434
+        }
+      ]
+    },
+    {
+      "term": "https://www.crowdstrike.com/blog/category/threat-intel/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "term": "https://www.defense.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 259
+        }
+      ]
+    },
+    {
+      "term": "https://www.edtx.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 228
+        }
+      ]
+    },
+    {
+      "term": "https://www.fbi.gov/investigate/counterintelligence",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 413
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 232
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "term": "https://www.fbi.gov/investigate/counterintelligence/espionage",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "term": "https://www.fbi.gov/investigate/counterintelligence/foreign-interference",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 414
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 233
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 138
+        }
+      ]
+    },
+    {
+      "term": "https://www.fbi.gov/news",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 415
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 235
+        }
+      ]
+    },
+    {
+      "term": "https://www.fbi.gov/news/stories",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 236
+        }
+      ]
+    },
+    {
+      "term": "https://www.fbi.gov/wanted/counterintelligence/monica-elfriede-witt",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 14
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/archives/opa/pr/former-us-counterintelligence-agent-charged-espionage-behalf-iran-four-iranians-charged-cyber",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/criminal-nsd/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 420
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 242
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 140
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/criminal-vcs/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 422
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/criminal-vcs/recent-cases",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 143
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/d9/press-releases/attachments/2019/02/13/2019_02_12_witt_indictment_unsealed.pdf",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/foia",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 263
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/nsd/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 419
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 240
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 139
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/nsd/counterintelligence-security-section",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 241
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/opa/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 421
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 243
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/opa/pr",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 244
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/usao-ndia/",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/usao-ndtx/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 426
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 249
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/usao-nj/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 427
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 250
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/usao-sdtx/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 425
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 248
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/usao-wdtx/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 251
+        }
+      ]
+    },
+    {
+      "term": "https://www.justice.gov/usao/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 252
+        }
+      ]
+    },
+    {
+      "term": "https://www.njd.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 410
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 226
+        }
+      ]
+    },
+    {
+      "term": "https://www.odni.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 430
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "term": "https://www.pacer.login.uscourts.gov/cgi-bin/login.pl",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 204
+        }
+      ]
+    },
+    {
+      "term": "https://www.sdtx.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 408
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 224
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 132
+        }
+      ]
+    },
+    {
+      "term": "https://www.state.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 258
+        }
+      ]
+    },
+    {
+      "term": "https://www.state.gov/foia-requests/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 265
+        }
+      ]
+    },
+    {
+      "term": "https://www.state.gov/key-topics-bureau-of-counterterrorism/terrorist-organizations/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 277
+        }
+      ]
+    },
+    {
+      "term": "https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "https://www.treasury.gov/resource-center/sanctions/ofac-sanctions-lists/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 276
+        }
+      ]
+    },
+    {
+      "term": "https://www.treasury.gov/resource-center/sanctions/sdn-list/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 275
+        }
+      ]
+    },
+    {
+      "term": "https://www.txd.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 409
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 225
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "term": "https://www.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 403
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 201
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "term": "https://www.uscourts.gov/news-and-updates",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 202
+        }
+      ]
+    },
+    {
+      "term": "https://www.wdtx.uscourts.gov/",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 227
+        }
+      ]
+    },
+    {
+      "term": "hyper-zealous",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 243
+        }
+      ]
+    },
+    {
+      "term": "iframe",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "in the path of",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 293
+        }
+      ]
+    },
+    {
+      "term": "indictment",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 319
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 403
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 408
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 181
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 9
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "informant exposure",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 186
+        }
+      ]
+    },
+    {
+      "term": "intelligence",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 413
+        }
+      ]
+    },
+    {
+      "term": "intelligence community",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 352
+        }
+      ]
+    },
+    {
+      "term": "intelligence gathering",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 340
+        }
+      ]
+    },
+    {
+      "term": "intelligence operation",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 168
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 300
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 175
+        }
+      ]
+    },
+    {
+      "term": "intelligence sharing",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 302
+        }
+      ]
+    },
+    {
+      "term": "irgc",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "is it possible to",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 294
+        }
+      ]
+    },
+    {
+      "term": "json",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 492
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 480
+        }
+      ]
+    },
+    {
+      "term": "judgment",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "term": "last four digits",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 250
+        }
+      ]
+    },
+    {
+      "term": "leaked credentials",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 257
+        }
+      ]
+    },
+    {
+      "term": "left face",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 344
+        }
+      ]
+    },
+    {
+      "term": "li",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "term": "link",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "liver of mine",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 305
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 410
+        }
+      ]
+    },
+    {
+      "term": "location_proximity",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 502
+        }
+      ]
+    },
+    {
+      "term": "m_elfriede_witt",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 300
+        }
+      ]
+    },
+    {
+      "term": "mail",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "material support",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 392
+        }
+      ]
+    },
+    {
+      "term": "mentions_together",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 496
+        }
+      ]
+    },
+    {
+      "term": "metadata",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "military officer",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 348
+        }
+      ]
+    },
+    {
+      "term": "missile program",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 310
+        }
+      ]
+    },
+    {
+      "term": "modified",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "monica_intel_bah",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 300
+        }
+      ]
+    },
+    {
+      "term": "motion",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 321
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "national defense information",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 389
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 296
+        }
+      ]
+    },
+    {
+      "term": "national security",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 354
+        }
+      ]
+    },
+    {
+      "term": "nav",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "noscript",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "not be tired",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 303
+        }
+      ]
+    },
+    {
+      "term": "nuclear program",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 311
+        }
+      ]
+    },
+    {
+      "term": "on my eyes",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 304
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 409
+        }
+      ]
+    },
+    {
+      "term": "ongoing",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 367
+        }
+      ]
+    },
+    {
+      "term": "operated_by",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 498
+        }
+      ]
+    },
+    {
+      "term": "operation",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 413
+        }
+      ]
+    },
+    {
+      "term": "order arms",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 343
+        }
+      ]
+    },
+    {
+      "term": "orientation flight",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "term": "overt act",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 251
+        }
+      ]
+    },
+    {
+      "term": "p",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "term": "parquet",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 483
+        }
+      ]
+    },
+    {
+      "term": "pdf",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "peace-loving",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "peace-loving nation",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 236
+        }
+      ]
+    },
+    {
+      "term": "perfect",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "performative loyalty",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 244
+        }
+      ]
+    },
+    {
+      "term": "personal shopper Dubai",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 361
+        }
+      ]
+    },
+    {
+      "term": "phpinfo.php",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "term": "phreaking",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 351
+        }
+      ]
+    },
+    {
+      "term": "place is empty",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 299
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 408
+        }
+      ]
+    },
+    {
+      "term": "place was empty",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 300
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 408
+        }
+      ]
+    },
+    {
+      "term": "plea agreement",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 324
+        }
+      ]
+    },
+    {
+      "term": "portal",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "present arms",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 342
+        }
+      ]
+    },
+    {
+      "term": "prosecution",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 328
+        }
+      ]
+    },
+    {
+      "term": "proxy forces",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 314
+        }
+      ]
+    },
+    {
+      "term": "quds",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "recent",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 366
+        }
+      ]
+    },
+    {
+      "term": "recruited_by",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 501
+        }
+      ]
+    },
+    {
+      "term": "redacted",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "regional destabilization",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "term": "restricted items shipping",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 363
+        }
+      ]
+    },
+    {
+      "term": "sanctions",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 87
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "term": "sanctions evasion",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 312
+        }
+      ]
+    },
+    {
+      "term": "sanctions violation",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 391
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "term": "script",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "section",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "term": "secure",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "security clearance",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 349
+        }
+      ]
+    },
+    {
+      "term": "security clearance revocation",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 303
+        }
+      ]
+    },
+    {
+      "term": "sentencing",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 323
+        }
+      ]
+    },
+    {
+      "term": "sequential_numbering",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "term": "sour mouth",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 306
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 410
+        }
+      ]
+    },
+    {
+      "term": "southern district",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 378
+        }
+      ]
+    },
+    {
+      "term": "span",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "term": "spoke with him",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 291
+        }
+      ]
+    },
+    {
+      "term": "sqlite",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 482
+        }
+      ]
+    },
+    {
+      "term": "stage",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "standard issue",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 377
+        }
+      ]
+    },
+    {
+      "term": "stem_reuse",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "term": "struggle",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "term": "style",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "term": "sucuri",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 922
+        }
+      ]
+    },
+    {
+      "term": "superior",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "supports",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 500
+        }
+      ]
+    },
+    {
+      "term": "surveillance",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 341
+        }
+      ]
+    },
+    {
+      "term": "table",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "term": "target packages",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 180
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "term": "temporal_proximity",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 503
+        }
+      ]
+    },
+    {
+      "term": "terrorism support",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 313
+        }
+      ]
+    },
+    {
+      "term": "terrorist organization",
+      "occurrences": [
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 88
+        },
+        {
+          "path": "trawler_irgc_monica_witt.py",
+          "line": 179
+        }
+      ]
+    },
+    {
+      "term": "testimony",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 331
+        }
+      ]
+    },
+    {
+      "term": "total",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "transexual",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 336
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "transvestite",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 335
+        },
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "term": "travel manifest",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 252
+        }
+      ]
+    },
+    {
+      "term": "traveled with",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 290
+        }
+      ]
+    },
+    {
+      "term": "trial",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 329
+        }
+      ]
+    },
+    {
+      "term": "twerking",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 268
+        }
+      ]
+    },
+    {
+      "term": "txt",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 492
+        }
+      ]
+    },
+    {
+      "term": "unauthorized disclosure",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 167
+        },
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 295
+        }
+      ]
+    },
+    {
+      "term": "unwavering",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 435
+        }
+      ]
+    },
+    {
+      "term": "unwavering defense",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 245
+        }
+      ]
+    },
+    {
+      "term": "version",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "term": "vets helping vets",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 378
+        }
+      ]
+    },
+    {
+      "term": "violation of espionage act",
+      "occurrences": [
+        {
+          "path": "continuous_monitoring_config.py",
+          "line": 298
+        }
+      ]
+    },
+    {
+      "term": "vpn",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "term": "war crimes",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 262
+        }
+      ]
+    },
+    {
+      "term": "water behind",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 307
+        }
+      ]
+    },
+    {
+      "term": "western groceries",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 316
+        }
+      ]
+    },
+    {
+      "term": "wire transfer",
+      "occurrences": [
+        {
+          "path": "irgc_monica_witt_config.py",
+          "line": 249
+        }
+      ]
+    },
+    {
+      "term": "witt",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "term": "wp-content",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 946
+        }
+      ]
+    },
+    {
+      "term": "wp-includes",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 946
+        }
+      ]
+    },
+    {
+      "term": "zahra_persian_blog",
+      "occurrences": [
+        {
+          "path": "trawler_24_7_continuous.py",
+          "line": 300
+        }
+      ]
+    }
+  ]
+}
