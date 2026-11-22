@@ -7,7 +7,7 @@ Updated 2026-11-21 (America/New_York). Findings reference upstream `30b5f605e9b5
 | Area | Evidence |
 |---|---|
 | Python | 51 tests pass through `scripts/test_offline.py`; real DNS/socket connections blocked in the test process |
-| Java | 8 tests pass: repeat/concurrent document upserts, preserved enrichment, distinct link evidence, score correction, validation, Envers prior revisions, no hash credibility upgrade, missing-key gate, exact PDF/signature ZIP packaging (some tests cover multiple assertions) |
+| Java | 9 tests pass: repeat/concurrent document upserts, preserved enrichment, distinct link evidence, score correction, validation, Envers prior revisions, no hash credibility upgrade, missing-key gate, exact PDF/signature ZIP packaging, archived client claims separated from unassessed server fields (some tests cover multiple assertions) |
 | Data preservation | Tests use synthetic records and disposable H2 only; no existing user database or Drive file modified |
 | Scope | No live target requests, continuous scheduling, infrastructure probes or biometric comparisons performed |
 | Vocabulary | Regression checks retain literal dictionary members and enforce inactive hypotheses/exclusions; no identifier asserted as verified without reviewed source metadata |
