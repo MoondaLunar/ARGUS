@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 """Enhanced trawler with multi-document support and metadata tracking"""
 
 import json

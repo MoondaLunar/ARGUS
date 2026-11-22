@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 # --- STANDALONE BACKUP REGISTER FOR LOCAL OPERATIONAL SECURITY ---
 from platform import system
 from sys import monitoring

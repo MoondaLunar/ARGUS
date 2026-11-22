@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 """
 IRGC & Monica Witt Intelligence Crawler
 Specialized for Monica Witt espionage case and IRGC connections
