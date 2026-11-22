@@ -8,7 +8,7 @@ Every source here answers two questions honestly:
   search(term) -> list of SourceHit. Each hit keeps the query that produced it,
   so a record can always say how it was found.
 
-Endpoints verified live on 2026-11-10 from this sandbox:
+Historical baseline notes (not reverified during rehabilitation):
   govinfo /search?offsetMark=*   200, JSON, federal court and agency collections
   govinfo package PDF            200, application/pdf, 10 pages
   efts.sec.gov/LATEST/search-index 200, JSON full-text search
@@ -23,7 +23,7 @@ import json
 import os
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional, Tuple
-from public_transport import public_url, validate_url
+from public_transport import public_url, validate_url, configured_transport
 
 import requests
 
@@ -69,8 +69,11 @@ class GovInfoSource(SearchSource):
     name = "govinfo"
     API = "https://api.govinfo.gov/search"
 
-    def __init__(self, api_key: Optional[str] = None, collection: str = "USCOURTS", timeout: int = 30):
-        self.api_key = api_key or os.environ.get("ARGUS_GOVINFO_KEY") or "DEMO_KEY"
+    def __init__(self, api_key: Optional[str] = None, collection: str = "USCOURTS", timeout: int = 30, *, transport=None, allow_network=False):
+        self.api_key = api_key or os.environ.get("ARGUS_GOVINFO_KEY")
+        self.transport = transport or configured_transport(allow_network=allow_network, timeout=timeout)
+        if self.api_key:
+            self.transport.credentials["api.govinfo.gov"] = {"X-Api-Key": self.api_key}
         self.collection = collection
         self.timeout = timeout
 
@@ -85,11 +88,9 @@ class GovInfoSource(SearchSource):
             "pageSize": limit,
             "offsetMark": "*",
         }
-        r = requests.post(self.API, params={"api_key": self.api_key}, json=body, timeout=self.timeout, allow_redirects=False)
-        r.raise_for_status()
-        data = r.json()
+        data = self.transport.search_json(self.API, method="POST", body=body)
         hits = []
-        for item in data.get("results", []):
+        for item in data.get("results", [])[:limit]:
             pdf = (item.get("download") or {}).get("pdfLink")
             if pdf:
                 validate_url(pdf)
@@ -100,10 +101,10 @@ class GovInfoSource(SearchSource):
                     title=item.get("title") or item.get("packageId", ""),
                     url=pdf or item.get("resultLink") or "",
                     doc_id=item.get("packageId", ""),
-                    court=(item.get("governmentAuthor") or [None])[0],
+                    court=None,  # A publisher/author is not a verified court jurisdiction.
                     date=item.get("dateIssued"),
                     collection=item.get("collectionCode") or self.collection,
-                    extra={},
+                    extra={"government_author": item.get("governmentAuthor")},
                 )
             )
         return hits
@@ -115,20 +116,20 @@ class SecEdgarSource(SearchSource):
     name = "sec_edgar"
     API = "https://efts.sec.gov/LATEST/search-index"
 
-    def __init__(self, user_agent: Optional[str] = None, timeout: int = 30):
-        self.ua = user_agent or os.environ.get("ARGUS_USER_AGENT") or "ARGUS osint tool (contact: set ARGUS_USER_AGENT)"
+    def __init__(self, user_agent: Optional[str] = None, timeout: int = 30, *, transport=None, allow_network=False):
+        self.ua = user_agent or os.environ.get("ARGUS_USER_AGENT")
         self.timeout = timeout
+        self.transport = transport or configured_transport(allow_network=allow_network, timeout=timeout)
+        if self.ua:
+            self.transport.credentials["efts.sec.gov"] = {"User-Agent": self.ua}
+
+    def available(self):
+        return (True, "ok") if self.ua else (False, "needs a real contact ARGUS_USER_AGENT")
 
     def search(self, term: str, limit: int = 10) -> List[SourceHit]:
-        r = requests.get(
-            self.API,
-            params={"q": f'"{term}"'},
-            headers={"User-Agent": self.ua, "Accept": "application/json"},
-            timeout=self.timeout,
-        )
-        r.raise_for_status()
+        data = self.transport.search_json(self.API, params={"q": f'"{term}"'})
         hits = []
-        for h in r.json().get("hits", {}).get("hits", [])[:limit]:
+        for h in data.get("hits", {}).get("hits", [])[:limit]:
             src = h.get("_source", {})
             cik = (src.get("ciks") or [""])[0].lstrip("0") or ""
             adsh = src.get("adsh", "").replace("-", "")
@@ -154,9 +155,12 @@ class CourtListenerSource(SearchSource):
     name = "courtlistener"
     API = "https://www.courtlistener.com/api/rest/v4/search/"
 
-    def __init__(self, token: Optional[str] = None, timeout: int = 30):
+    def __init__(self, token: Optional[str] = None, timeout: int = 30, *, transport=None, allow_network=False):
         self.token = token or os.environ.get("ARGUS_COURTLISTENER_TOKEN")
         self.timeout = timeout
+        self.transport = transport or configured_transport(allow_network=allow_network, timeout=timeout)
+        if self.token:
+            self.transport.credentials["www.courtlistener.com"] = {"Authorization": "Token " + self.token}
 
     def available(self) -> Tuple[bool, str]:
         if not self.token:
@@ -164,15 +168,9 @@ class CourtListenerSource(SearchSource):
         return True, "ok"
 
     def search(self, term: str, limit: int = 10) -> List[SourceHit]:
-        r = requests.get(
-            self.API,
-            params={"q": f'"{term}"', "type": "o"},
-            headers={"Authorization": f"Token {self.token}", "Accept": "application/json"},
-            timeout=self.timeout,
-        )
-        r.raise_for_status()
+        data = self.transport.search_json(self.API, params={"q": f'"{term}"', "type": "o"})
         hits = []
-        for item in r.json().get("results", [])[:limit]:
+        for item in data.get("results", [])[:limit]:
             hits.append(
                 SourceHit(
                     source=self.name,
@@ -208,11 +206,11 @@ class BrowserGatedSource(SearchSource):
         return self.url_template.format(term=requests.utils.quote(term))
 
 
-def default_sources() -> List[SearchSource]:
+def default_sources(*, allow_network=False) -> List[SearchSource]:
     return [
-        GovInfoSource(),
-        SecEdgarSource(),
-        CourtListenerSource(),
+        GovInfoSource(allow_network=allow_network),
+        SecEdgarSource(allow_network=allow_network),
+        CourtListenerSource(allow_network=allow_network),
         BrowserGatedSource(
             "fbi.gov",
             "https://www.fbi.gov/search?q={term}",
@@ -230,7 +228,9 @@ def search_all(terms: List[str], sources: Optional[List[SearchSource]] = None, l
     """Run every available source for every term and report what each one did."""
     if sources is None and not allow_network:
         return {"terms": terms, "sources": [], "hits": [], "unavailable": [{"source": "network", "reason": "disabled; approval required"}], "errors": []}
-    sources = sources if sources is not None else default_sources()
+    if not isinstance(limit, int) or not 1 <= limit <= 100:
+        raise ValueError("Search result limit must be between 1 and 100")
+    sources = sources if sources is not None else default_sources(allow_network=allow_network)
     report = {"terms": terms, "sources": [], "hits": [], "unavailable": [], "errors": []}
     for src in sources:
         if isinstance(src, (GovInfoSource, SecEdgarSource, CourtListenerSource)) and not allow_network:

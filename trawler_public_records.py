@@ -16,7 +16,7 @@ from itertools import combinations
 import requests
 from bs4 import BeautifulSoup
 
-from public_transport import PublicTransport, canonical_url, public_url, validate_url
+from public_transport import configured_transport, PublicTransport, canonical_url, public_url, validate_url
 import hashlib
 from dataclasses import field
 
@@ -204,7 +204,7 @@ class PublicRecordsCrawler:
         sources: Optional[List] = None,
         *, transport=None, allow_network=False, rate_limit=1.0,
     ):
-        self.transport = transport or PublicTransport(allow_network=allow_network)
+        self.transport = transport or configured_transport(allow_network=allow_network)
         self.allow_network = allow_network
         self.rate_limit = rate_limit
         self.errors = []
