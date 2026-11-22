@@ -1,5 +1,4 @@
-from legacy_policy import blocked
-blocked(__name__)
+from offline_session import OfflineSession
 
 """Enhanced trawler with performance optimizations for 32GB RAM and modern async I/O"""
 
@@ -147,7 +146,7 @@ class OptimizedWebTrawler:
 
     def _create_optimized_session(self) -> requests.Session:
         """Create session with connection pooling and retry strategy"""
-        session = requests.Session()
+        session = OfflineSession()
 
         # Retry strategy with exponential backoff
         retry_strategy = Retry(
@@ -472,8 +471,7 @@ class OptimizedWebTrawler:
     def query_ollama(self, ent_a: str, ent_b: str, context: str) -> Optional[Dict]:
         """Query Ollama with caching"""
         # Create cache key from entities and context hash
-        context_hash = hash(context[:500]) % 10000000
-        return self.cache_ollama_query(ent_a, ent_b, context_hash)
+        return self.cache_ollama_query(ent_a, ent_b, context)
 
     def fallback_score(self, ent_a: str, ent_b: str, context: str) -> Dict:
         """Fallback entity proximity scoring"""
@@ -599,6 +597,9 @@ class OptimizedWebTrawler:
     def build_output(self) -> Dict:
         """Build final output"""
         return {
+            "assessment": "exploratory_legacy_output",
+            "identity_verified": False,
+            "score_semantics": "uncalibrated heuristic; not identity or threat probability",
             "seedUrl": self.seed_url,
             "domain": self.domain,
             "entities": self.entities,

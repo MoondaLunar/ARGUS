@@ -108,3 +108,9 @@ class PipelineTests(unittest.TestCase):
         t=FixtureTransport(b'');t.fetch=Mock(side_effect=TimeoutError('secret'))
         c=PublicRecordsCrawler(['https://www.justice.gov/a'],[],sources=[],transport=t,rate_limit=0)
         out=c.crawl();self.assertEqual(out['records'],[]);self.assertEqual(out['errors'][0]['error_type'],'TimeoutError')
+
+    def test_malformed_fetch_url_reports_error_without_secondary_failure(self):
+        crawler = PublicRecordsCrawler([], [], sources=[])
+        self.assertIsNone(crawler.fetch_document('https://user:SECRET@[invalid'))
+        self.assertIsNone(crawler.errors[0]['url'])
+        self.assertNotIn('SECRET', json.dumps(crawler.errors))

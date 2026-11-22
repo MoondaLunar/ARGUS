@@ -1,5 +1,4 @@
-from legacy_policy import blocked
-blocked(__name__)
+from offline_session import OfflineSession
 
 import json
 import logging
@@ -53,7 +52,7 @@ class MemoryWebTrawler:
         self.queue: List[Dict[str, object]] = []
         self.edges: List[LinkEdge] = []
 
-        self.session = requests.Session()
+        self.session = OfflineSession()
         self.session.headers.update({
             "User-Agent": "US-Aligned-OSINT-Agent/3.0 (Friendly Actor; Defense Research)",
             "X-Mission-Intent": "General Web Trawling (Friendly Research)",
@@ -262,6 +261,9 @@ class MemoryWebTrawler:
 
     def build_output(self) -> Dict[str, object]:
         return {
+            "assessment": "exploratory_legacy_output",
+            "identity_verified": False,
+            "score_semantics": "uncalibrated heuristic; not identity or threat probability",
             "seedUrl": self.seed_url,
             "domain": self.domain,
             "entities": self.entities,

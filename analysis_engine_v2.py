@@ -5,7 +5,7 @@ import logging
 import math
 from functools import lru_cache
 from typing import Dict, List, Tuple, Optional
-from fuzzywuzzy import fuzz, process
+
 from collections import defaultdict
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -18,6 +18,7 @@ class FuzzyMatcher:
     @lru_cache(maxsize=512)
     def _cached_similarity(entity: str, candidate: str, scorer_type: str = "token_sort") -> int:
         """Cached fuzzy similarity calculation"""
+        from fuzzywuzzy import fuzz, process
         if scorer_type == "token_sort":
             return fuzz.token_sort_ratio(entity, candidate)
         elif scorer_type == "ratio":
@@ -27,6 +28,7 @@ class FuzzyMatcher:
     @staticmethod
     def find_similar_entities(entity: str, candidates: List[str], threshold: int = 75) -> List[Tuple[str, int]]:
         """Find similar entity names using fuzzy matching with caching"""
+        from fuzzywuzzy import fuzz, process
         matches = process.extract(entity, candidates, scorer=fuzz.token_sort_ratio, limit=5)
         return [(match, score) for match, score in matches if score >= threshold]
 
@@ -193,7 +195,7 @@ class CorrelationAnalyzer:
 
             # Location clustering
             if 'gps' in metadata:
-                patterns['common_locations'][metadata['gps']] += 1
+                patterns['common_locations'][json.dumps(metadata['gps'], sort_keys=True)] += 1
 
             # Timestamp patterns
             timestamp = metadata.get('date_taken', 'unknown')
@@ -416,4 +418,7 @@ class ExportFormatter:
         if events:
             assessment['recent_activity'] = len([e for e in events if e.get('entities') and entity in e['entities']])
 
+        assessment['legacy_risk_label'] = assessment['risk_level']
+        assessment['risk_level'] = 'unassessed'
+        assessment['score_semantics'] = 'legacy heuristic, not threat or identity probability'
         return assessment

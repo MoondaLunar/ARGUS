@@ -1,19 +1,20 @@
 # Historical capabilities and migration boundary
 
-The original crawler generations are preserved in place and in Git history. Their imports now fail explicitly before optional dependencies, agent construction or network execution. This is an intentional quarantine, not a claim that their functionality has been replaced. Remove no data or state files.
+Original source, vocabulary, data references and Git history are preserved. No collected data has been deleted. Historical documentation is retained for comparison; its operational commands and feature claims are not current instructions.
 
-| Retained capability | Supported path / migration requirement |
+| Capability | Current disposition |
 |---|---|
-| HTML/PDF public-record search and retrieval | `trawler_public_records.py`, offline by default |
-| Historical vocabulary | `research/vocabulary-original.json`; source locations preserved |
-| Active research terms | `research/search-profile.json` through `research_config.py` |
-| Local EXIF/PDF metadata | `metadata_extractor.py`, optional dependencies |
-| Fuzzy matching, timelines, graphs and distance utilities | `analysis_engine*.py`; exploratory output, never identity verification |
-| Specialized case reports | Historical `trawler_irgc_monica_witt.py`; migrate to evidence-based filters before re-enabling |
-| Cached/threaded model analysis | Historical enhanced crawlers; migrate with explicit context, candidate schemas and concurrency tests |
-| Graph checkpoint/cache/PGP pipeline | Historical `import os.py`; migrate with schema/version compatibility tests |
-| Continuous scheduler and alerts | Preserved, disabled; requires separate user approval and repaired durable state |
-| Infrastructure probes and biometric identification | Preserved as historical source only; excluded from this platform |
-| Random/fixed simulated intelligence and linguistic identity claims | Historical only; must never enter evidence storage |
+| HTML/PDF public-record retrieval and source discovery | Supported pipeline in `trawler_public_records.py`; network disabled by default; fixture-tested |
+| Original research vocabulary | Archived with source locations in `research/vocabulary-original.json` |
+| Active queries and verified identifiers | Central `research_config.py`; no unsourced verified alias; hypotheses/exclusions inactive |
+| Local EXIF/PDF metadata | `metadata_extractor.py`; GPS decoding/null/PDF fixes tested; metadata is not proof of presence |
+| Distance, timelines, metadata patterns, graph helpers | `analysis_engine*.py` retained; selected distance/pattern regressions pass; exhaustive graph/timeline validation pending |
+| Specialized case view | `trawler_irgc_monica_witt.py` restored over the supported pipeline; full-text literal query matches only; all records retained |
+| Original crawler parsers and model cache | Three crawler generations importable; their sessions reject every network request; full-context cache bug fixed; model behavior/concurrency unvalidated |
+| Standalone graph/checkpoint/cache/PGP pipeline | `import os.py` retained but blocked before dependency loading; migration and state compatibility unresolved |
+| Continuous scheduler, agents, alerts and state | Source retained; `trawler_24_7_continuous.py` blocked before dependency loading; no scheduler activation |
+| Infrastructure probes and biometric identification | Historical source only, outside supported scope; not enabled by live retrieval opt-in |
+| Random/fixed simulated observations and linguistic identity claims | Historical-only; excluded from supported evidence pipeline |
+| Backend document/link records and separate findings | Both preserved; not falsely presented as one integrated domain; separate findings export does not include ordinary crawler records |
 
-No verified alias is populated merely because a historical file calls it known. The initial active profile contains two literal research name queries with an explicit unverified/contextual label. All other historical vocabulary stays inactive. Exclusions are not positive queries and do not silently discard a document that contains relevant evidence.
+The legacy block is not a replacement claim. Restoration of a capability requires evidence schemas, fixture tests, passive scope review, and explicit documentation. Continuous scheduling and live target requests additionally require the user's approval. Importable legacy helpers remain exploratory: network blocking does not make their original heuristics reliable.
