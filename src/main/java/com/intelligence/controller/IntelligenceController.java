@@ -40,15 +40,18 @@ public class IntelligenceController {
         finding.setDataHash(com.crawler.service.IngestionService.hash(
             java.util.Objects.toString(finding.getDescription(), "")));
         finding.setInfoCredibility("6");
+        finding.setSourceReliability("F");
         finding.setConfidenceLevel("Unassessed research observation");
+        finding.setAnalyticStandard("Unassessed client submission");
         finding.setProbabilityPercentage(null);
         finding.setPersonaMatchScore(null);
         finding.setAuthenticityScore(null);
+        finding.setDeceptionFlag(null);
 
         // Set context for Hibernate Envers
         AuditContext.set(buildNumber, finding.getDataHash());
         try {
-            // Apply military corroboration logic before saving
+            // Annotate duplicate content without upgrading credibility.
             corroborationService.processCorroboration(finding);
             return ResponseEntity.ok(repository.save(finding));
         } finally {
