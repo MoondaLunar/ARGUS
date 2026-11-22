@@ -45,11 +45,11 @@ public class PgpSignatureFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        boolean enabled = publicKeyPath != null && !publicKeyPath.isBlank() && Files.exists(Paths.get(publicKeyPath));
+        boolean enabled = publicKeyPath != null && !publicKeyPath.isBlank();
 
         if (!enabled) {
             if (!warned) {
-                log.info("PGP request gate is off (argus.pgp.public-key unset or missing). Set it to require X-PGP-Signature on /api/**.");
+                log.info("PGP request gate is off (argus.pgp.public-key unset). Set it to require X-PGP-Signature on /api/**.");
                 warned = true;
             }
             filterChain.doFilter(request, response);
@@ -58,6 +58,11 @@ public class PgpSignatureFilter extends OncePerRequestFilter {
 
         if (!request.getRequestURI().startsWith("/api")) {
             filterChain.doFilter(request, response);
+            return;
+        }
+
+        if (!Files.isRegularFile(Path.of(publicKeyPath))) {
+            response.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "Configured signature key unavailable");
             return;
         }
 
@@ -79,7 +84,7 @@ public class PgpSignatureFilter extends OncePerRequestFilter {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid PGP Signature");
             }
         } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Signature error: " + e.getMessage());
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Signature verification failed");
         }
     }
 }

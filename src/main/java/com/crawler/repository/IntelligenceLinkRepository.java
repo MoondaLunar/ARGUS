@@ -14,6 +14,8 @@ import java.util.Optional;
 @Repository
 public interface IntelligenceLinkRepository extends JpaRepository<IntelligenceLink, Long> {
     
+    Optional<IntelligenceLink> findByEvidenceKey(String evidenceKey);
+
     Optional<IntelligenceLink> findByEntityAAndEntityB(String entityA, String entityB);
     
     List<IntelligenceLink> findByEntityA(String entityA);

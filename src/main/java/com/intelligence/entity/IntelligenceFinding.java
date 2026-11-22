@@ -15,6 +15,10 @@ public class IntelligenceFinding {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
+    private String submittedAssessment; // Original unverified client payload for audit
+    private String submittedDataHash; // Claimed hash, never treated as validated
+
     private String type;
     
     @Column(columnDefinition = "TEXT")
