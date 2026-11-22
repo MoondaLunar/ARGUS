@@ -63,3 +63,15 @@ class AdditionalCorrelationTests(unittest.TestCase):
         a=mention('Jane Example','PERSON','Jane Example',.6)
         self.assertEqual(PublicRecordsCrawler._connection_confidence('Jane Example','PERSON',a,a,2),
                          PublicRecordsCrawler._connection_confidence('Jane Example','PERSON',a,a,200))
+
+class LegacyProvenanceTests(unittest.TestCase):
+    def test_import_redacts_credentials_without_modifying_original(self):
+        from ingest import document_payload
+        import json
+        source = {'url':'https://www.justice.gov/a', 'full_text':'Original quotation',
+                  'provenance':[{'extra':{'fetch_url':'https://api.govinfo.gov/a?api_key=SECRET', 'token':'SECRET'}}]}
+        original = copy.deepcopy(source)
+        payload = document_payload(source)
+        self.assertNotIn('SECRET', json.dumps(payload))
+        self.assertEqual(source, original)
+        self.assertEqual(payload['extractedText'], 'Original quotation')

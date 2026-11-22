@@ -244,7 +244,11 @@ class PublicRecordsCrawler:
             return response.body.decode(response.encoding, errors='replace'), response.mime_type
         except Exception as exc:
             # Exception text can contain credential-bearing request URLs.
-            self.errors.append({'stage': 'fetch', 'url': public_url(url), 'error_type': type(exc).__name__})
+            try:
+                error_url = public_url(url)
+            except (ValueError, TypeError, UnicodeError):
+                error_url = None
+            self.errors.append({'stage': 'fetch', 'url': error_url, 'error_type': type(exc).__name__})
             return None
 
     def extract_pdf_text(self, raw: bytes, max_chars: int = 200_000) -> Optional[str]:

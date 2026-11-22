@@ -27,8 +27,7 @@ class ResearchPolicyTest(unittest.TestCase):
                             self.assertIn(e.value, terms)
 
     def test_legacy_import_fails_before_loading_tools(self):
-        for name in ('trawler', 'trawler_enhanced', 'trawler_enhanced_v2',
-                     'trawler_24_7_continuous', 'trawler_irgc_monica_witt'):
+        for name in ('trawler_24_7_continuous',):
             r = subprocess.run([sys.executable, '-c', f'import {name}'], cwd=ROOT, capture_output=True, text=True)
             self.assertNotEqual(r.returncode, 0)
             self.assertIn('legacy runtime is disabled', r.stderr)

@@ -5719,5 +5719,6 @@
         }
       ]
     }
-  ]
+  ],
+  "digest_scope": "SHA-256 of normalized local source snapshot, not raw provider bytes; baseline commit/path identify original source."
 }

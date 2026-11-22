@@ -1003,5 +1003,6 @@
       ],
       "historical_comparison": "text-equivalent"
     }
-  ]
+  ],
+  "digest_scope": "Normalized local text snapshot used for static inspection; not raw Git blob bytes. See VALIDATION.md."
 }

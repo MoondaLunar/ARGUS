@@ -13,3 +13,7 @@ __pycache__/
 
 # local secrets (API keys) - never commit
 .env
+
+
+# Generated diagnostics
+crawler.log

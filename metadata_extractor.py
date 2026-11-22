@@ -7,8 +7,8 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Dict, Optional, List, Any
 from PIL import Image
-from PIL.ExifTags import TAGS as EXIF_TAGS
-import PyPDF2
+from PIL.ExifTags import TAGS as EXIF_TAGS, GPSTAGS
+from pypdf import PdfReader
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
@@ -95,7 +95,7 @@ class MetadataExtractor:
 
             gps_data = {}
             for key, val in gps_ifd.items():
-                tag_name = EXIF_TAGS.get(key, key)
+                tag_name = GPSTAGS.get(key, key)
                 gps_data[tag_name] = val
 
             lat = gps_data.get('GPSLatitude')
@@ -117,9 +117,13 @@ class MetadataExtractor:
                 lon_decimal = -lon_decimal
 
             altitude = None
-            if alt:
-                altitude = float(alt[0]) / float(alt[1]) if alt[1] != 0 else 0
+            if alt is not None:
+                altitude = (float(alt[0]) / float(alt[1])) if isinstance(alt, tuple) else float(alt)
+                if gps_data.get('GPSAltitudeRef') in (1, b'\x01'):
+                    altitude = -altitude
 
+            if not (-90 <= lat_decimal <= 90 and -180 <= lon_decimal <= 180):
+                raise ValueError('Coordinates outside valid range')
             return GPSCoordinate(
                 latitude=lat_decimal,
                 longitude=lon_decimal,
@@ -133,6 +137,7 @@ class MetadataExtractor:
     @staticmethod
     def extract_image_metadata(file_path: str) -> Optional[ImageMetadata]:
         """Extract metadata from image file"""
+        img = None
         try:
             path = Path(file_path)
             if not path.exists():
@@ -167,7 +172,7 @@ class MetadataExtractor:
                 logging.debug(f"Could not extract full EXIF from {file_path}: {e}")
 
             import hashlib
-            file_hash = hashlib.md5(open(file_path, 'rb').read()).hexdigest()
+            file_hash = hashlib.md5(path.read_bytes()).hexdigest()
 
             return ImageMetadata(
                 file_path=str(path.absolute()),
@@ -187,6 +192,9 @@ class MetadataExtractor:
         except Exception as e:
             logging.error(f"Failed to extract image metadata from {file_path}: {e}")
             return None
+        finally:
+            if img is not None:
+                img.close()
 
     @staticmethod
     def extract_pdf_metadata(file_path: str) -> Optional[PDFMetadata]:
@@ -198,16 +206,16 @@ class MetadataExtractor:
                 return None
 
             with open(file_path, 'rb') as f:
-                pdf_reader = PyPDF2.PdfReader(f)
+                pdf_reader = PdfReader(f)
                 pages = len(pdf_reader.pages)
                 metadata = pdf_reader.metadata or {}
 
                 text_preview = ""
                 if pages > 0:
-                    text_preview = pdf_reader.pages[0].extract_text()[:500]
+                    text_preview = (pdf_reader.pages[0].extract_text() or '')[:500]
 
             import hashlib
-            file_hash = hashlib.md5(open(file_path, 'rb').read()).hexdigest()
+            file_hash = hashlib.md5(path.read_bytes()).hexdigest()
 
             return PDFMetadata(
                 file_path=str(path.absolute()),
@@ -233,9 +241,11 @@ class MetadataExtractor:
         mime_type, _ = mimetypes.guess_type(file_path)
 
         if mime_type and mime_type.startswith('image/'):
-            return asdict(MetadataExtractor.extract_image_metadata(file_path) or {})
+            result = MetadataExtractor.extract_image_metadata(file_path)
+            return asdict(result) if result is not None else None
         elif mime_type == 'application/pdf':
-            return asdict(MetadataExtractor.extract_pdf_metadata(file_path) or {})
+            result = MetadataExtractor.extract_pdf_metadata(file_path)
+            return asdict(result) if result is not None else None
         else:
             logging.warning(f"Unsupported file type for metadata extraction: {mime_type}")
             return None

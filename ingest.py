@@ -10,7 +10,22 @@ import json
 import math
 from urllib.parse import urlsplit
 import requests
-from public_transport import public_url
+from public_transport import public_url, SECRET_KEYS
+
+
+def provenance_copy(value):
+    """Redact structured credentials in imported legacy provenance without mutating input."""
+    if isinstance(value, dict):
+        return {k: ('[redacted]' if k.casefold() in SECRET_KEYS else provenance_copy(v))
+                for k, v in value.items()}
+    if isinstance(value, list):
+        return [provenance_copy(v) for v in value]
+    if isinstance(value, str) and value.lower().startswith(('https://', 'http://')):
+        try:
+            return public_url(value)
+        except (ValueError, UnicodeError):
+            return '[invalid provenance URL]'
+    return value
 
 
 def evidence_rationale(conn):
@@ -24,7 +39,7 @@ def document_payload(rec):
     url = public_url(rec['url'])
     text = rec.get('full_text') or rec.get('text_excerpt') or ''
     if not isinstance(text, str):raise ValueError('Document text must be a string')
-    metadata = {k:v for k,v in rec.items() if k not in ('full_text', 'text_excerpt')}
+    metadata = provenance_copy({k:v for k,v in rec.items() if k not in ('full_text', 'text_excerpt')})
     metadata['url'] = url
     return {'sourceType':'web','identifier':url,'url':url,
             'documentType':'pdf' if rec.get('mime_type')=='application/pdf' or urlsplit(url).path.lower().endswith(('.pdf','/pdf')) else 'html',
@@ -45,7 +60,7 @@ def connection_payload(conn):
     key=hashlib.sha256(json.dumps([a,b,conn['entity_type'],conn['entity'].casefold()],ensure_ascii=False).encode()).hexdigest()
     return {'entityA':a,'entityB':b,'confidence':score,'rationale':evidence_rationale(conn),
             'sourceUrl':public_url(evidence[0]['url']),'linkType':'document_co-occurrence',
-            'evidenceKey':key,'metadataEvidence':json.dumps({**conn,'identity_verified':False},ensure_ascii=False,allow_nan=False)}
+            'evidenceKey':key,'metadataEvidence':json.dumps(provenance_copy({**conn,'identity_verified':False}),ensure_ascii=False,allow_nan=False)}
 
 
 def ingest(crawl,api='http://localhost:8080',timeout=30,*,session=None,dry_run=True):

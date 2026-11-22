@@ -3,7 +3,7 @@
 import json
 import logging
 from typing import Dict, List, Tuple, Optional
-from fuzzywuzzy import fuzz, process
+
 from collections import defaultdict
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -15,6 +15,7 @@ class FuzzyMatcher:
     @staticmethod
     def find_similar_entities(entity: str, candidates: List[str], threshold: int = 75) -> List[Tuple[str, int]]:
         """Find similar entity names using fuzzy matching"""
+        from fuzzywuzzy import fuzz, process
         matches = process.extract(entity, candidates, scorer=fuzz.token_sort_ratio, limit=5)
         return [(match, score) for match, score in matches if score >= threshold]
 
@@ -144,7 +145,7 @@ class CorrelationAnalyzer:
 
             # Location clustering
             if 'gps' in metadata:
-                patterns['common_locations'][metadata['gps']] += 1
+                patterns['common_locations'][json.dumps(metadata['gps'], sort_keys=True)] += 1
 
             # Timestamp patterns
             timestamp = metadata.get('date_taken', 'unknown')
@@ -259,7 +260,8 @@ class ExportFormatter:
                 'connections': low_confidence
             },
             'summary': {
-                'most_likely_association': high_confidence[0] if high_confidence else None,
+                'most_likely_association': None,  # No identity/association decision from heuristic scores
+                'assessment': 'unreviewed candidates',
                 'evidence_diversity': len(set(c.get('link_type') for c in connections))
             }
         }

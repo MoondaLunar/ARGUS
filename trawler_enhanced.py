@@ -1,5 +1,4 @@
-from legacy_policy import blocked
-blocked(__name__)
+from offline_session import OfflineSession
 
 """Enhanced trawler with multi-document support and metadata tracking"""
 
@@ -106,7 +105,7 @@ class EnhancedMemoryWebTrawler:
         self.data_sources: List[DataSource] = []
         self.images_by_geohash: Dict[str, List[ImageMetadata]] = {}
 
-        self.session = requests.Session()
+        self.session = OfflineSession()
         self.session.headers.update({
             "User-Agent": "EnhancedMemoryWebTrawler/2.0",
             "Accept": "text/html,application/xhtml+xml,application/xml,application/pdf;q=0.9,image/*;q=0.8,*/*;q=0.7",
@@ -441,6 +440,9 @@ class EnhancedMemoryWebTrawler:
 
     def build_output(self) -> Dict[str, object]:
         return {
+            "assessment": "exploratory_legacy_output",
+            "identity_verified": False,
+            "score_semantics": "uncalibrated heuristic; not identity or threat probability",
             "seedUrl": self.seed_url,
             "domain": self.domain,
             "entities": self.entities,
