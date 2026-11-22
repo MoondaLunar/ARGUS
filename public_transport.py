@@ -2,10 +2,12 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import hashlib
+import json
+import os
 import ipaddress
 import re
 import socket
-from urllib.parse import urlsplit, urlunsplit, urljoin, parse_qsl, urlencode
+from urllib.parse import urlsplit, urlunsplit, urljoin, parse_qsl, urlencode, unquote
 import requests
 
 DEFAULT_HOSTS = frozenset({'fbi.gov', 'www.fbi.gov', 'vault.fbi.gov', 'justice.gov',
@@ -44,8 +46,16 @@ def validate_url(url, hosts=DEFAULT_HOSTS):
         raise ValueError('Host is not explicitly approved')
     if p.scheme != 'https':
         raise ValueError('Public retrieval requires HTTPS')
-    segments = {x.casefold() for x in p.path.split('/')}
-    if segments & {'login', 'signin', 'auth', 'payment', 'logout'}:
+    decoded = p.path
+    for _ in range(4):
+        expanded = unquote(decoded, errors='strict')
+        if expanded == decoded:
+            break
+        decoded = expanded
+    if '%' in decoded or re.search(r'[\\\x00-\x1f\x7f]', decoded):
+        raise ValueError('Ambiguous encoded path')
+    segments = {x.casefold() for x in decoded.split('/')}
+    if segments & {'login', 'signin', 'auth', 'payment', 'logout', '.', '..', '.env', '.git', 'phpinfo.php'}:
         raise ValueError('Authenticated/transactional path is outside public-record scope')
     return clean
 
@@ -83,6 +93,26 @@ class PublicTransport:
         self.errors = []
 
     def fetch(self, url):
+        return self._request(url)
+
+    def search_json(self, url, *, method='GET', params=None, body=None):
+        """Only the fixed public-search API contracts may use JSON/POST."""
+        endpoints = {
+            'https://api.govinfo.gov/search': 'POST',
+            'https://efts.sec.gov/LATEST/search-index': 'GET',
+            'https://www.courtlistener.com/api/rest/v4/search/': 'GET',
+        }
+        if endpoints.get(url) != method:
+            raise ValueError('Unapproved search API operation')
+        if params:
+            url += '?' + urlencode(params)
+        response = self._request(url, method=method, body=body, search=True)
+        result = json.loads(response.body)
+        if not isinstance(result, dict):
+            raise ValueError('Search API must return an object')
+        return result
+
+    def _request(self, url, *, method='GET', body=None, search=False):
         if not self.allow_network:
             raise RuntimeError('Network disabled: use fixtures or obtain approval before enabling live retrieval')
         original = public_url(url)
@@ -90,12 +120,17 @@ class PublicTransport:
         for hop in range(self.max_redirects + 1):
             self.resolver(urlsplit(current).hostname)
             # Credentials are selected anew for each validated host; never carried across redirects.
-            headers = {'Accept': 'text/html,application/xhtml+xml,application/pdf,text/plain',
+            accepted = {'application/json'} if search else {'text/html', 'application/xhtml+xml', 'application/pdf', 'text/plain'}
+            headers = {'Accept': ','.join(sorted(accepted)),
                        'User-Agent': 'ARGUS public-record research/1.0'}
             headers.update(self.credentials.get(urlsplit(current).hostname, {}))
-            with self.session.get(current, headers=headers, timeout=self.timeout,
-                                  stream=True, allow_redirects=False) as response:
+            send = self.session.post if method == 'POST' else self.session.get
+            options = {'json': body} if method == 'POST' else {}
+            with send(current, headers=headers, timeout=self.timeout,
+                      stream=True, allow_redirects=False, **options) as response:
                 if response.status_code in (301, 302, 303, 307, 308):
+                    if search:
+                        raise ValueError('Search API redirects are not permitted')
                     if hop == self.max_redirects:
                         raise ValueError('Redirect limit exceeded')
                     current = validate_url(urljoin(current, response.headers.get('Location', '')), self.allowed_hosts)
@@ -103,7 +138,7 @@ class PublicTransport:
                 if response.status_code != 200:
                     raise ValueError(f'HTTP status {response.status_code}')
                 mime = response.headers.get('Content-Type', '').split(';')[0].strip().lower()
-                if mime not in {'text/html', 'application/xhtml+xml', 'application/pdf', 'text/plain'}:
+                if mime not in accepted:
                     raise ValueError('Unsupported document MIME type')
                 length = response.headers.get('Content-Length')
                 if length and int(length) > self.max_bytes:
@@ -117,3 +152,19 @@ class PublicTransport:
                     datetime.now(timezone.utc).isoformat(), hashlib.sha256(body).hexdigest(),
                     encoding=response.encoding or 'utf-8')
         raise ValueError('No document returned')
+
+
+def configured_transport(*, allow_network=False, timeout=30):
+    """Host-scoped credentials; never include secrets in discovery URLs."""
+    credentials = {}
+    key = os.environ.get('ARGUS_GOVINFO_KEY')
+    token = os.environ.get('ARGUS_COURTLISTENER_TOKEN')
+    contact = os.environ.get('ARGUS_USER_AGENT')
+    if key:
+        credentials['api.govinfo.gov'] = {'X-Api-Key': key}
+    if token:
+        credentials['www.courtlistener.com'] = {'Authorization': 'Token ' + token}
+    if contact:
+        for host in ('efts.sec.gov', 'www.sec.gov'):
+            credentials[host] = {'User-Agent': contact}
+    return PublicTransport(allow_network=allow_network, timeout=timeout, credentials=credentials)

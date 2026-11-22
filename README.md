@@ -32,7 +32,7 @@ The specialized case view uses this same profile, examines retained full text, a
 
 ## Evidence and correlation
 
-Records retain requested/final URLs, discovery routes, retrieval timestamp, raw-byte SHA-256, extracted-text SHA-256, MIME type, bounded extracted text, and explicit failures. Retrieval uses approved HTTPS hosts, validates redirects, and bounds streamed response size. Raw response bytes are not yet durably archived. DNS checks are preflight checks, not connection pinning.
+Records retain requested/final URLs, discovery routes, retrieval timestamp, raw-byte SHA-256, extracted-text SHA-256, MIME type, bounded extracted text, and explicit failures. Retrieval uses approved HTTPS hosts, validates redirects, and bounds streamed response size. Search APIs use the same transport; only the fixed GovInfo search endpoint permits POST, and search redirects are rejected. Credentials are host-scoped through ARGUS_GOVINFO_KEY, ARGUS_COURTLISTENER_TOKEN and ARGUS_USER_AGENT. Raw response bytes are not yet durably archived. DNS checks are preflight checks, not connection pinning.
 
 Exact normalized mentions produce candidate links carrying both document identifiers and quotations. Similar names are separate review candidates. Dockets require a known matching court. Mirrored text does not become independent corroboration, and document count does not increase confidence. Scores describe extraction heuristics, not calibrated identity probabilities.
 
