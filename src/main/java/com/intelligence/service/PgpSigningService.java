@@ -17,18 +17,23 @@ import java.util.Iterator;
 @Service
 public class PgpSigningService {
 
-    private final String SECRET_KEY_PATH = "secret_key.asc";
-    private final String PASSPHRASE = "your_secure_passphrase"; // In production, use an env variable
+    @org.springframework.beans.factory.annotation.Value("${argus.pgp.secret-key:}")
+    private String secretKeyPath;
+    @org.springframework.beans.factory.annotation.Value("${argus.pgp.passphrase:}")
+    private String passphrase;
 
     /**
      * Generates a PGP Detached Signature for the provided data.
      */
     public byte[] signData(byte[] data) throws Exception {
-        InputStream keyIn = Files.newInputStream(Paths.get(SECRET_KEY_PATH));
-        PGPSecretKey secretKey = readSecretKey(keyIn);
+        if (secretKeyPath == null || secretKeyPath.isBlank()) throw new IllegalStateException("Signing key not configured");
+        PGPSecretKey secretKey;
+        try (InputStream keyIn = Files.newInputStream(Paths.get(secretKeyPath))) {
+            secretKey = readSecretKey(keyIn);
+        }
         
         PGPPrivateKey privateKey = secretKey.extractPrivateKey(
-                new JcePBESecretKeyDecryptorBuilder().setProvider("BC").build(PASSPHRASE.toCharArray()));
+                new JcePBESecretKeyDecryptorBuilder().setProvider("BC").build(passphrase.toCharArray()));
 
         PGPSignatureGenerator signatureGenerator = new PGPSignatureGenerator(
                 new JcaPGPContentSignerBuilder(secretKey.getPublicKey().getAlgorithm(), PGPUtil.SHA256).setProvider("BC"));

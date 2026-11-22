@@ -36,7 +36,7 @@ public class EntityGpsCluster {
     @Column(nullable = false)
     private Double confidence; // Based on corroboration
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String evidence; // JSON array of document references
 
     @Column(name = "first_seen")

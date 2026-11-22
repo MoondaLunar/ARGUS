@@ -21,7 +21,7 @@ public class DocumentArtifact {
     @Column(nullable = false)
     private String sourceType; // web, local, archive
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 2000)
     private String identifier; // URL or file path
 
     private String documentType; // image, pdf, html, archive, etc
@@ -32,10 +32,10 @@ public class DocumentArtifact {
     @Column(columnDefinition = "TEXT")
     private String filePath;
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String metadata; // JSON: EXIF, PDF props, etc
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String extractedText; // Preview of content
 
     private String hashMd5;

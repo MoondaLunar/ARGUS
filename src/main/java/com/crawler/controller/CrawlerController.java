@@ -26,21 +26,13 @@ public class CrawlerController {
     @Autowired
     private EntityGpsClusterRepository gpsClusterRepository;
 
+    @Autowired
+    private com.crawler.service.IngestionService ingestionService;
+
     // Link endpoints
     @PostMapping("/links")
     public IntelligenceLink upsertLink(@RequestBody IntelligenceLink newLink) {
-        return linkRepository.findByEntityAAndEntityB(newLink.getEntityA(), newLink.getEntityB())
-            .map(existingLink -> {
-                if (newLink.getConfidence() > existingLink.getConfidence()) {
-                    existingLink.setConfidence(newLink.getConfidence());
-                    existingLink.setRationale(newLink.getRationale());
-                    existingLink.setSourceUrl(newLink.getSourceUrl());
-                    existingLink.setLinkType(newLink.getLinkType());
-                    existingLink.setMetadataEvidence(newLink.getMetadataEvidence());
-                }
-                return linkRepository.save(existingLink);
-            })
-            .orElseGet(() -> linkRepository.save(newLink));
+        return ingestionService.link(newLink);
     }
 
     @GetMapping("/links/entity/{entity}")
@@ -66,7 +58,7 @@ public class CrawlerController {
     // Document endpoints
     @PostMapping("/documents")
     public DocumentArtifact saveDocument(@RequestBody DocumentArtifact document) {
-        return documentRepository.save(document);
+        return ingestionService.document(document);
     }
 
     @GetMapping("/documents/hash/{hash}")

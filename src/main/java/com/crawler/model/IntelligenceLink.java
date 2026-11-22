@@ -20,6 +20,9 @@ public class IntelligenceLink {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, length = 64)
+    private String evidenceKey;
+
     private String entityA;
     private String entityB;
     
@@ -33,7 +36,7 @@ public class IntelligenceLink {
     @Column(name = "linkType", nullable = false)
     private String linkType = "entity_co-occurrence"; // entity_co-occurrence, gps_proximity, metadata_match, document_co-occurrence
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String metadataEvidence; // JSON serialized metadata
 
     @Column(name = "created_at", nullable = false, updatable = false)

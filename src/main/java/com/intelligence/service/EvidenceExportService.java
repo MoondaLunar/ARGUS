@@ -27,9 +27,18 @@ public class EvidenceExportService {
     @Autowired
     private PgpSigningService pgpSigningService;
 
+    @org.springframework.transaction.annotation.Transactional(readOnly = true)
     public byte[] generateSignedEvidencePdf() throws Exception {
         byte[] pdfBytes = generatePdfReport();
-        return pgpSigningService.signData(pdfBytes);
+        byte[] signature = pgpSigningService.signData(pdfBytes);
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        try (var zip = new java.util.zip.ZipOutputStream(output)) {
+            zip.putNextEntry(new java.util.zip.ZipEntry("evidence.pdf"));
+            zip.write(pdfBytes); zip.closeEntry();
+            zip.putNextEntry(new java.util.zip.ZipEntry("evidence.pdf.sig"));
+            zip.write(signature); zip.closeEntry();
+        }
+        return output.toByteArray();
     }
 
     private byte[] generatePdfReport() throws Exception {
@@ -44,8 +53,8 @@ public class EvidenceExportService {
         Font normalFont = FontFactory.getFont(FontFactory.HELVETICA, 10);
         Font auditFont = FontFactory.getFont(FontFactory.COURIER, 8);
 
-        document.add(new Paragraph("OFFICIAL EVIDENCE REPORT - FBI OSINT SENTINEL", titleFont));
-        document.add(new Paragraph("System Build: SENTINEL-V3.1.0", normalFont));
+        document.add(new Paragraph("ARGUS RESEARCH OBSERVATIONS - NOT AN OFFICIAL FINDING", titleFont));
+        document.add(new Paragraph("Candidate evidence; identity and source independence require review", normalFont));
         document.add(new Paragraph("Export Timestamp: " + java.time.LocalDateTime.now(), normalFont));
         document.add(new Paragraph("\n"));
 
@@ -56,7 +65,7 @@ public class EvidenceExportService {
             document.add(new Paragraph("Source URL: " + finding.getSourceUrl(), normalFont));
             document.add(new Paragraph("Description: " + finding.getDescription(), normalFont));
             
-            document.add(new Paragraph("--- IMMUTABLE AUDIT TRAIL (ENVERS) ---", auditFont));
+            document.add(new Paragraph("--- DATABASE REVISION HISTORY (ENVERS) ---", auditFont));
             
             List<Number> revisions = auditReader.getRevisions(IntelligenceFinding.class, finding.getId());
             for (Number revNum : revisions) {
