@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 """Enhanced trawler with performance optimizations for 32GB RAM and modern async I/O"""
 
 import asyncio

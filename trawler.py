@@ -1,3 +1,6 @@
+from legacy_policy import blocked
+blocked(__name__)
+
 import json
 import logging
 import re

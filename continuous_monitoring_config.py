@@ -605,3 +605,11 @@ if __name__ == "__main__":
     print(f"   Check Interval: {interval}s ({interval // 60} min)")
     
     print(f"\n✅ Configuration loaded successfully!")
+
+
+# Central inactive-by-default compatibility accessors.
+from research_config import active_search_terms, verified_aliases
+get_all_expanded_aliases = verified_aliases
+get_all_expanded_search_terms = active_search_terms
+def get_all_expanded_seed_urls():
+    return []
